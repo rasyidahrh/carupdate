@@ -117,7 +117,7 @@ if ($_POST['status'] == "semua") {
         status
         from
         kelayakan
-        join mobil on mobil.id=kelayakan.plat_nomer";
+        join mobil on mobil.plat_nomer=kelayakan.plat_nomer";
     } else if ($_POST['tipe'] != "semua" && $_POST['merek'] == "semua") {
         $sql = "select 
         kelayakan.id,
@@ -130,7 +130,7 @@ if ($_POST['status'] == "semua") {
         status
         from
         kelayakan
-        join mobil on mobil.id=kelayakan.plat_nomer where kelayakan.tipe_mobil='$_POST[tipe]'";
+        join mobil on mobil.plat_nomer=kelayakan.plat_nomer where kelayakan.tipe_mobil='$_POST[tipe]'";
     } else if ($_POST['tipe'] != "semua" && $_POST['merek'] != "semua") {
         $sql = "select 
         kelayakan.id,
@@ -143,7 +143,7 @@ if ($_POST['status'] == "semua") {
         status
         from
         kelayakan
-        join mobil on mobil.id=kelayakan.plat_nomer where kelayakan.tipe_mobil='$_POST[tipe]' and kelayakan.merek='$_POST[merek]'";
+        join mobil on mobil.plat_nomer=kelayakan.plat_nomer where kelayakan.tipe_mobil='$_POST[tipe]' and kelayakan.merek='$_POST[merek]'";
     } else if ($_POST['tipe'] == "semua" && $_POST['merek'] != "semua") {
         $sql = "select 
         kelayakan.id,
@@ -156,7 +156,7 @@ if ($_POST['status'] == "semua") {
         status
         from
         kelayakan
-        join mobil on mobil.id=kelayakan.plat_nomer where kelayakan.merek='$_POST[merek]'";
+        join mobil on mobil.plat_nomer=kelayakan.plat_nomer where kelayakan.merek='$_POST[merek]'";
     }
 } else if ($_POST['status'] == "layak") {
     if ($_POST['tipe'] == "semua" && $_POST['merek'] == "semua") {
@@ -171,7 +171,7 @@ if ($_POST['status'] == "semua") {
         status
         from
         kelayakan
-        join mobil on mobil.id=kelayakan.plat_nomer where status='layak'";
+        join mobil on mobil.plat_nomer=kelayakan.plat_nomer where status='layak'";
     } else if ($_POST['tipe'] != "semua" && $_POST['merek'] == "semua") {
         $sql = "select 
         kelayakan.id,
@@ -184,7 +184,7 @@ if ($_POST['status'] == "semua") {
         status
         from
         kelayakan
-        join mobil on mobil.id=kelayakan.plat_nomer where status='layak' and kelayakan.tipe_mobil='$_POST[tipe]'";
+        join mobil on mobil.plat_nomer=kelayakan.plat_nomer where status='layak' and kelayakan.tipe_mobil='$_POST[tipe]'";
     } else if ($_POST['tipe'] != "semua" && $_POST['merek'] != "semua") {
         $sql = "select 
         kelayakan.id,
@@ -197,7 +197,7 @@ if ($_POST['status'] == "semua") {
         status
         from
         kelayakan
-        join mobil on mobil.id=kelayakan.plat_nomer where status='layak' and kelayakan.tipe_mobil='$_POST[tipe]' and kelayakan.merek='$_POST[merek]'";
+        join mobil on mobil.plat_nomer=kelayakan.plat_nomer where status='layak' and kelayakan.tipe_mobil='$_POST[tipe]' and kelayakan.merek='$_POST[merek]'";
     } else if ($_POST['tipe'] == "semua" && $_POST['merek'] != "semua") {
         $sql = "select 
         kelayakan.id,
@@ -210,7 +210,7 @@ if ($_POST['status'] == "semua") {
         status
         from
         kelayakan
-        join mobil on mobil.id=kelayakan.plat_nomer where status='layak' and kelayakan.merek='$_POST[merek]'";
+        join mobil on mobil.plat_nomer=kelayakan.plat_nomer where status='layak' and kelayakan.merek='$_POST[merek]'";
     }
 } else {
     if ($_POST['tipe'] == "semua" && $_POST['merek'] == "semua") {
@@ -225,7 +225,7 @@ if ($_POST['status'] == "semua") {
         status
         from
         kelayakan
-        join mobil on mobil.id=kelayakan.plat_nomer where status='pergantian'";
+        join mobil on mobil.plat_nomer=kelayakan.plat_nomer where status='pergantian'";
     } else if ($_POST['tipe'] != "semua" && $_POST['merek'] == "semua") {
         $sql = "select 
         kelayakan.id,
@@ -238,7 +238,7 @@ if ($_POST['status'] == "semua") {
         status
         from
         kelayakan
-        join mobil on mobil.id=kelayakan.plat_nomer where status='pergantian' and kelayakan.tipe_mobil='$_POST[tipe]'";
+        join mobil on mobil.plat_nomer=kelayakan.plat_nomer where status='pergantian' and kelayakan.tipe_mobil='$_POST[tipe]'";
     } else if ($_POST['tipe'] != "semua" && $_POST['merek'] != "semua") {
         $sql = "select 
         kelayakan.id,
@@ -251,7 +251,7 @@ if ($_POST['status'] == "semua") {
         status
         from
         kelayakan
-        join mobil on mobil.id=kelayakan.plat_nomer where status='pergantian' and kelayakan.tipe_mobil='$_POST[tipe]' and kelayakan.merek='$_POST[merek]'";
+        join mobil on mobil.plat_nomer=kelayakan.plat_nomer where status='pergantian' and kelayakan.tipe_mobil='$_POST[tipe]' and kelayakan.merek='$_POST[merek]'";
     } else if ($_POST['tipe'] == "semua" && $_POST['merek'] != "semua") {
         $sql = "select 
         kelayakan.id,
@@ -264,7 +264,7 @@ if ($_POST['status'] == "semua") {
         status
         from
         kelayakan
-        join mobil on mobil.id=kelayakan.plat_nomer where status='pergantian' and keyalakan.merek='$_POST[merek]'";
+        join mobil on mobil.plat_nomer=kelayakan.plat_nomer where status='pergantian' and keyalakan.merek='$_POST[merek]'";
     }
 }
 // $sql = "select * from mobil where jumlah=1 and merek='$_POST[merek]'";
