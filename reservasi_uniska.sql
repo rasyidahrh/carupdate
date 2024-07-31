@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 27, 2024 at 12:57 PM
+-- Generation Time: Jul 31, 2024 at 05:04 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,22 @@ SET time_zone = "+00:00";
 --
 -- Database: `reservasi_uniska`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `asuransi`
+--
+
+CREATE TABLE `asuransi` (
+  `id` int(20) NOT NULL,
+  `plat_nomer` varchar(20) NOT NULL,
+  `Tipe_Mobil` int(11) NOT NULL,
+  `Tanggal_Awal` date NOT NULL,
+  `Tanggal_Akhir` date NOT NULL,
+  `Jenis` int(11) NOT NULL,
+  `statuspem` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -64,7 +80,7 @@ CREATE TABLE `kelayakan` (
   `tipe_mobil` varchar(50) NOT NULL,
   `merek` varchar(50) NOT NULL,
   `BBM` varchar(100) NOT NULL,
-  `perbaikan` int(11) NOT NULL,
+  `kerusakan` int(11) NOT NULL,
   `deskripsi` varchar(100) NOT NULL,
   `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -73,7 +89,7 @@ CREATE TABLE `kelayakan` (
 -- Dumping data for table `kelayakan`
 --
 
-INSERT INTO `kelayakan` (`id`, `plat_nomer`, `tipe_mobil`, `merek`, `BBM`, `perbaikan`, `deskripsi`, `status`) VALUES
+INSERT INTO `kelayakan` (`id`, `plat_nomer`, `tipe_mobil`, `merek`, `BBM`, `kerusakan`, `deskripsi`, `status`) VALUES
 (8, 'DA 1131 AP', 'MINI BUS', 'Toyota Avanza ', '35 liter', 1, '1. Ban Meletus', 'layak'),
 (9, 'B 9012 APS', 'MINI BUS', 'Daihatsu Xenia', '40 liter', 1, '1. Ac tidak dingin', 'layak'),
 (10, 'B 2231 APS', 'BOX', 'Toyota Hilux', '45 liter', 2, '1. Pintu belakang tidak bisa ditutup\r\n2. Body depan penyok', 'layak'),
@@ -141,6 +157,21 @@ INSERT INTO `mobil` (`plat_nomer`, `merek`, `tipe_mobil`, `warna`, `BBM`, `foto`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pajak`
+--
+
+CREATE TABLE `pajak` (
+  `id` int(20) NOT NULL,
+  `plat_nomer` varchar(20) NOT NULL,
+  `no_rangka` varchar(50) NOT NULL,
+  `no_mesin` varchar(50) NOT NULL,
+  `tipe` varchar(50) NOT NULL,
+  `statuspemba` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pegawai`
 --
 
@@ -180,10 +211,10 @@ INSERT INTO `pegawai` (`id_nik`, `Nama`, `fk_devisi`, `Jabatan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `perbaikan`
+-- Table structure for table `kerusakan`
 --
 
-CREATE TABLE `perbaikan` (
+CREATE TABLE `kerusakan` (
   `id` int(20) NOT NULL,
   `plat_nomer` varchar(20) NOT NULL,
   `nama_pelapor` varchar(50) NOT NULL,
@@ -196,10 +227,10 @@ CREATE TABLE `perbaikan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `perbaikan`
+-- Dumping data for table `kerusakan`
 --
 
-INSERT INTO `perbaikan` (`id`, `plat_nomer`, `nama_pelapor`, `Nik`, `Devisi`, `tujuan_terakhir`, `tgl`, `deskripsi`, `status`) VALUES
+INSERT INTO `kerusakan` (`id`, `plat_nomer`, `nama_pelapor`, `Nik`, `Devisi`, `tujuan_terakhir`, `tgl`, `deskripsi`, `status`) VALUES
 (13, 'B 9012 APS', 'Aisyah Tamara ', 1054, 'Deployement', 'Monitoring', '2024-03-04 18:14:00', 'body penyok ', 'pending'),
 (14, 'B 2231 APS', 'Sadewa Sanjaya', 1119, 'HSE & Quality', 'Tinjauan TPS', '2024-02-22 06:31:02', 'Ban Bocor ', 'sudah diperbaiki'),
 (15, 'DA 2314 AP', 'Elang Winata', 1259, 'AR AP1 Group', 'Tinjauan TPS', '2024-02-29 00:24:00', 'Mesin berasap', 'pending'),
@@ -299,6 +330,20 @@ INSERT INTO `role` (`id_role`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `service`
+--
+
+CREATE TABLE `service` (
+  `id` int(20) NOT NULL,
+  `plat_nomer` varchar(20) NOT NULL,
+  `Tipemobil` int(11) NOT NULL,
+  `merek` int(11) NOT NULL,
+  `jenis service` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `status`
 --
 
@@ -360,6 +405,13 @@ INSERT INTO `user` (`id`, `Nik`, `Password`, `fk_role`) VALUES
 --
 
 --
+-- Indexes for table `asuransi`
+--
+ALTER TABLE `asuransi`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `asuransi_ibfk_1` (`plat_nomer`);
+
+--
 -- Indexes for table `devisi`
 --
 ALTER TABLE `devisi`
@@ -379,6 +431,13 @@ ALTER TABLE `mobil`
   ADD PRIMARY KEY (`plat_nomer`);
 
 --
+-- Indexes for table `pajak`
+--
+ALTER TABLE `pajak`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `plat_nomer` (`plat_nomer`);
+
+--
 -- Indexes for table `pegawai`
 --
 ALTER TABLE `pegawai`
@@ -386,9 +445,9 @@ ALTER TABLE `pegawai`
   ADD KEY `pegawai_ibfk_1` (`fk_devisi`);
 
 --
--- Indexes for table `perbaikan`
+-- Indexes for table `kerusakan`
 --
-ALTER TABLE `perbaikan`
+ALTER TABLE `kerusakan`
   ADD PRIMARY KEY (`id`),
   ADD KEY `mobil` (`plat_nomer`);
 
@@ -409,6 +468,13 @@ ALTER TABLE `role`
   ADD PRIMARY KEY (`id_role`);
 
 --
+-- Indexes for table `service`
+--
+ALTER TABLE `service`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `plat_nomer` (`plat_nomer`);
+
+--
 -- Indexes for table `status`
 --
 ALTER TABLE `status`
@@ -427,15 +493,27 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `asuransi`
+--
+ALTER TABLE `asuransi`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `kelayakan`
 --
 ALTER TABLE `kelayakan`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT for table `perbaikan`
+-- AUTO_INCREMENT for table `pajak`
 --
-ALTER TABLE `perbaikan`
+ALTER TABLE `pajak`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `kerusakan`
+--
+ALTER TABLE `kerusakan`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
@@ -443,6 +521,12 @@ ALTER TABLE `perbaikan`
 --
 ALTER TABLE `reserv`
   MODIFY `id_reserv` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+
+--
+-- AUTO_INCREMENT for table `service`
+--
+ALTER TABLE `service`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -455,15 +539,27 @@ ALTER TABLE `user`
 --
 
 --
+-- Constraints for table `asuransi`
+--
+ALTER TABLE `asuransi`
+  ADD CONSTRAINT `asuransi_ibfk_1` FOREIGN KEY (`plat_nomer`) REFERENCES `mobil` (`plat_nomer`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `kelayakan`
 --
 ALTER TABLE `kelayakan`
   ADD CONSTRAINT `plat_nomer` FOREIGN KEY (`plat_nomer`) REFERENCES `mobil` (`plat_nomer`);
 
 --
--- Constraints for table `perbaikan`
+-- Constraints for table `pajak`
 --
-ALTER TABLE `perbaikan`
+ALTER TABLE `pajak`
+  ADD CONSTRAINT `pajak_ibfk_1` FOREIGN KEY (`plat_nomer`) REFERENCES `mobil` (`plat_nomer`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `kerusakan`
+--
+ALTER TABLE `kerusakan`
   ADD CONSTRAINT `fk_plat_nomer` FOREIGN KEY (`plat_nomer`) REFERENCES `mobil` (`plat_nomer`);
 
 --
@@ -474,6 +570,12 @@ ALTER TABLE `reserv`
   ADD CONSTRAINT `reserv_ibfk_3` FOREIGN KEY (`Pilih_Reserv`) REFERENCES `status` (`id_sts`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `reserv_ibfk_4` FOREIGN KEY (`Devisi`) REFERENCES `devisi` (`id_devisi`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `reserv_ibfk_5` FOREIGN KEY (`Plat_nomer`) REFERENCES `mobil` (`plat_nomer`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `service`
+--
+ALTER TABLE `service`
+  ADD CONSTRAINT `service_ibfk_1` FOREIGN KEY (`plat_nomer`) REFERENCES `mobil` (`plat_nomer`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
