@@ -35,7 +35,7 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
     } else {
         echo "404";
     }
-    $mobil = mysqli_query($koneksi, "select count(id) from mobil");
+    $mobil = mysqli_query($koneksi, "select count(plat_nomer) from mobil");
     $jumlahMobil = mysqli_fetch_array($mobil)[0];
 
     $reserv = mysqli_query($koneksi, "select count(id_reserv) from reserv");

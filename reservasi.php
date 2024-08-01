@@ -116,7 +116,7 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                             status
                             from reserv 
                             join pegawai on id_nik=reserv.Nik 
-                            join mobil on reserv.Plat_nomer=mobil.id;");
+                            join mobil on reserv.Plat_nomer=mobil.plat_nomer;");
                                 while ($d = mysqli_fetch_array($data)) {
 
                                 ?>

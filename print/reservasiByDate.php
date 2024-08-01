@@ -129,7 +129,7 @@ if ($_POST['reservasi'] == 'semua') {
     status
     from reserv 
     join pegawai on id_nik=reserv.Nik 
-    join mobil on reserv.Plat_nomer=mobil.id 
+    join mobil on reserv.Plat_nomer=mobil.plat_nomer 
     where date(WaktuOut) >= "' . $_POST["tgl1"] . '"
     and date(WaktuOut) <= "' . $_POST["tgl2"] . '"';
 } else {
@@ -154,7 +154,7 @@ if ($_POST['reservasi'] == 'semua') {
     status
     from reserv 
     join pegawai on id_nik=reserv.Nik 
-    join mobil on reserv.Plat_nomer=mobil.id 
+    join mobil on reserv.Plat_nomer=mobil.plat_nomer
     where date(WaktuOut) >= "' . $_POST["tgl1"] . '"
     and date(WaktuOut) <= "' . $_POST["tgl2"] . '"
     and Pilih_Reserv="' . $_POST["reservasi"] . '"';

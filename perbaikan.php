@@ -71,15 +71,15 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                             <tbody>
                                 <?php
                                 $no = 1;
-                                $data = mysqli_query($koneksi, "select * from perbaikan");
+                                $data = mysqli_query($koneksi, "select * from kerusakan");
                                 while ($d = mysqli_fetch_array($data)) {
                                 ?>
                                     <tr>
                                         <?php
                                         if ($_SESSION['fk_role'] == 'admin') {
                                             echo ' <td>
-                                                <a href="updateperbaikan.php?id=' . $d["id"] . '"><button class="btn btn-success"><i class="fas fa-fw fa-pen"></i></button></a>
-                                                <a href="" data-id="' . $d["id"] . '" data-toggle="modal" data-target="#exampleModal" <button class="btn btn-danger"> <i class="fas fa-fw fa-trash"></i></a>
+                                                <a href="updateperbaikan.php?plat_nomer=' . $d["plat_nomer"] . '"><button class="btn btn-success"><i class="fas fa-fw fa-pen"></i></button></a>
+                                                <a href="" data-plat_nomer="' . $d["plat_nomer"] . '" data-toggle="modal" data-target="#exampleModal" <button class="btn btn-danger"> <i class="fas fa-fw fa-trash"></i></a>
                                             </td>';
                                         } else {
                                             echo '';

@@ -85,8 +85,8 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                                     <?php
                                     if ($_SESSION['fk_role'] == 'admin') {
                                         echo ' <td>
-                            <a href="updatemobil.php?id=' . $d["id"] . '"><button class="btn btn-success"><i class="fas fa-fw fa-pen"></i></button></a>
-                            <a href="process/process_hapusmobil.php?id=' . $d["id"] . '" data-id="' . $d["id"] . '" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger"><i class="fas fa-fw fa-trash"></i></a>
+                            <a href="updatemobil.php?plat_nomer=' . $d["plat_nomer"] . '"><button class="btn btn-success"><i class="fas fa-fw fa-pen"></i></button></a>
+                            <a href="process/process_hapusmobil.php?plat_nomer=' . $d["plat_nomer"] . '" data-id="' . $d["plat_nomer"] . '" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger"><i class="fas fa-fw fa-trash"></i></a>
                         </td>';
                                     } else {
                                         echo '';
