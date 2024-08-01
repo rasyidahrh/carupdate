@@ -116,7 +116,7 @@ if ($_POST['reservasi'] == 'semua') {
     pegawai.Jabatan as Jabatan,
     Tujuan,
     Pilih_Reserv,
-    mobil.plat_nomer as Plat_nomer,
+    mobil.plat_nomer,
     mobil.Merek,
     mobil.Tipe_Mobil,
     mobil.Warna,
@@ -129,7 +129,7 @@ if ($_POST['reservasi'] == 'semua') {
     status
     from reserv 
     join pegawai on id_nik=reserv.Nik 
-    join mobil on reserv.Plat_nomer=mobil.plat_nomer 
+    join mobil on reserv.Plat_nomer=mobil.id 
     where date(WaktuOut) >= "' . $_POST["tgl1"] . '"
     and date(WaktuOut) <= "' . $_POST["tgl2"] . '"';
 } else {
@@ -141,7 +141,7 @@ if ($_POST['reservasi'] == 'semua') {
     pegawai.Jabatan as Jabatan,
     Tujuan,
     Pilih_Reserv,
-    mobil.plat_nomer as Plat_nomer,
+    mobil.plat_nomer,
     mobil.Merek,
     mobil.Tipe_Mobil,
     mobil.Warna,
@@ -154,7 +154,7 @@ if ($_POST['reservasi'] == 'semua') {
     status
     from reserv 
     join pegawai on id_nik=reserv.Nik 
-    join mobil on reserv.Plat_nomer=mobil.plat_nomer
+    join mobil on reserv.Plat_nomer=mobil.id 
     where date(WaktuOut) >= "' . $_POST["tgl1"] . '"
     and date(WaktuOut) <= "' . $_POST["tgl2"] . '"
     and Pilih_Reserv="' . $_POST["reservasi"] . '"';
@@ -173,7 +173,7 @@ if ($result->num_rows > 0) {
         $pdf->Cell(15, 10, $row['Jabatan'], 1);
         $pdf->Cell(45, 10, $row['Tujuan'], 1);
         $pdf->Cell(20, 10, $row['Pilih_Reserv'], 1);
-        $pdf->Cell(25, 10, $row['Plat_nomer'], 1);
+        $pdf->Cell(25, 10, $row['plat_nomer'], 1);
         $pdf->Cell(30, 10, $row['Merek'], 1);
         $pdf->Cell(20, 10, $row['Tipe_Mobil'], 1);
         $pdf->Cell(20, 10, $row['Warna'], 1);

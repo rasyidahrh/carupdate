@@ -10,7 +10,7 @@
                 <hr>
                 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.php">
                     <div class="sidebar-brand-icon">
-                        <img src="img/aps.jpg" alt="" width="70" height="70">
+                        <img src="<?= BASE_URL ?>/img/aps.jpg" alt="" width="70" height="70">
                     </div>
                     <div class="sidebar-brand-text mx-3">APS RESERVASI</div>
                 </a>
@@ -21,7 +21,7 @@
 
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item">
-                    <a class="nav-link" href="dashboard.php?page=<?= $_SESSION['fk_role'] ?>">
+                    <a class="nav-link" href="<?= BASE_URL ?>/view/dashboard.php?page=<?= $_SESSION['fk_role'] ?>">
                         <i class="nav-icon fas fa-home"></i>
                         <span>Dashboard</span></a>
                 </li>
@@ -36,7 +36,7 @@
                     </a>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="mobil.php">List Mobil</a>
+                            <a class="collapse-item" href="<?= BASE_URL ?>/view/mobil/mobil.php">List Mobil</a>
                         </div>
                     </div>
                 </li>
@@ -50,8 +50,8 @@
                     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">RESERVASI</h6>
-                            <a class="collapse-item" href="reservasi.php">List Reservasi</a>
-                            <a class="collapse-item" href="addReserv.php">Tambah Reservasi</a>
+                            <a class="collapse-item" href="<?= BASE_URL ?>/view/reservasi/reservasi.php">List Reservasi</a>
+                            <a class="collapse-item" href="<?= BASE_URL ?>/view/reservasi/addReserv.php">Tambah Reservasi</a>
                         </div>
                 </li>
                 <!-- <hr class="sidebar-divider"> -->
@@ -90,14 +90,27 @@
                     <i class="fas fa-fw fa-key"></i>
                     <span>Asuransi Kendaraan</span>
                 </a>
-                <div id="collapseAsuransi" class="collapse" aria-labelledby="headingTiga" data-parent="#accordionSidebar">
+                <div id="collapseKelayakan" class="collapse" aria-labelledby="headingTiga" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="kelayakan.php">List Package Asuransi</a>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         </div>
                     </div>
                 </div>
-            </li>';
+            </li>\
+            <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseKelayakan" aria-expanded="true" aria-controls="collapseKelayakan">
+                <i class="fas fa-fw fa-key"></i>
+                <span>Asuransi</span>
+            </a>
+            <div id="collapseKelayakan" class="collapse" aria-labelledby="headingTiga" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="kelayakan.php">List Kelayakan</a>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    </div>
+                </div>
+            </div>
+        </li>';
                 } else {
                     echo '';
                 }
@@ -117,9 +130,9 @@
                         data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Management User</h6>
-                            <a class="collapse-item" href="devisi.php">Data Devisi</a>
-                            <a class="collapse-item" href="pegawai.php">Data Pegawai</a>
-                            <a class="collapse-item" href="user.php">Role</a>
+                            <a class="collapse-item" href="' . BASE_URL . '/view/devisi/devisi.php">Data Devisi</a>
+                            <a class="collapse-item" href="' . BASE_URL . '/view/pegawai/pegawai.php">Data Pegawai</a>
+                            <a class="collapse-item" href="' . BASE_URL . '/view/user/user.php">Role</a>
                 </li>';
                 } else {
                     echo '';
@@ -137,11 +150,11 @@
                         data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Laporan filter</h6>
-                            <a class="collapse-item" href="laporanreserv.php">Laporan Reservasi</a>
-                            <a class="collapse-item" href="laporanMobil.php">Laporan Mobil</a>
-                            <a class="collapse-item" href="laporanperbaikan.php">Laporan Perbaikan</a>
-                            <a class="collapse-item" href="laporanKelayakan.php">Laporan Kelayakan</a>
-                            <a class="collapse-item" href="laporanPegawai.php">Laporan Pegawai</a>
+                            <a class="collapse-item" href="' . BASE_URL . '/view/laporan/laporanreserv.php">Laporan Reservasi</a>
+                            <a class="collapse-item" href="' . BASE_URL . '/view/laporan/laporanMobil.php">Laporan Mobil</a>
+                            <a class="collapse-item" href="' . BASE_URL . '/view/laporan/laporanperbaikan.php">Laporan Perbaikan</a>
+                            <a class="collapse-item" href="' . BASE_URL . '/view/laporan/laporanKelayakan.php">Laporan Kelayakan</a>
+                            <a class="collapse-item" href="' . BASE_URL . '/view/laporan/laporanPegawai.php">Laporan Pegawai</a>
                 </li>';
                 } else {
                     echo '';
@@ -156,5 +169,4 @@
                 <div class="text-center d-none d-md-inline">
                     <button class="rounded-circle border-0" id="sidebarToggle"></button>
                 </div>
-
             </ul>
