@@ -90,7 +90,7 @@
                     <i class="fas fa-fw fa-key"></i>
                     <span>Asuransi Kendaraan</span>
                 </a>
-                <div id="collapseKelayakan" class="collapse" aria-labelledby="headingTiga" data-parent="#accordionSidebar">
+                <div id="collapseAsuransi" class="collapse" aria-labelledby="headingTiga" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="kelayakan.php">List Package Asuransi</a>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -99,7 +99,7 @@
                 </div>
             </li>\
             <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseKelayakan" aria-expanded="true" aria-controls="collapseKelayakan">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAsuransi\" aria-expanded="true" aria-controls="collapseKelayakan">
                 <i class="fas fa-fw fa-key"></i>
                 <span>Asuransi</span>
             </a>
