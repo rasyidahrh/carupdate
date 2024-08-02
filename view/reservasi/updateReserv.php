@@ -29,7 +29,7 @@ include '../../function/helper.php';
             id_reserv,
             Nama_Peminjam,
             Nik,
-            Devisi,
+            devisi.devisi as devisi,
             Jabatan,
             Tujuan,
             Pilih_Reserv,
@@ -49,6 +49,8 @@ include '../../function/helper.php';
             reserv 
         join 
             mobil on mobil.plat_nomer=reserv.Plat_nomer 
+        join 
+            devisi on reserv.Devisi=devisi.id_devisi
         where id_reserv=$id_reserv"));
         if ($_SESSION['fk_role'] == 'user') {
             $_SESSION['disabled'] = "disabled";
@@ -99,12 +101,12 @@ include '../../function/helper.php';
                         <label for="" class="form-label">Unit Kerja</label>
                         <!-- <input type="text" class="form-control" <?= $_SESSION['disabled'] ?> id="" aria-describedby="" name="Devisi" value="<?= $data['Devisi']; ?>" required> -->
                         <select name="Devisi" class="form-control <?= $_SESSION['disabled'] ?>" required>
-                            <option value="<?= $data['Devisi']; ?>" selected="selected"><?= $data['Devisi']; ?></option>
+                            <option value="<?= $data['devisi']; ?>" selected="selected"><?= $data['devisi']; ?></option>
                             <?php
-                            $sql_devisi = mysqli_query($koneksi, "SELECT devisi FROM devisi") or die(mysqli_error($koneksi));
+                            $sql_devisi = mysqli_query($koneksi, "SELECT * FROM devisi") or die(mysqli_error($koneksi));
                             while ($data_devisi = mysqli_fetch_array($sql_devisi)) {
-                                if ($data['Devisi'] != $data_devisi['devisi']) {
-                                    echo '<option value="' . $data_devisi['devisi'] . '">' . $data_devisi['devisi'] . '</option>';
+                                if ($data['devisi'] != $data_devisi['devisi']) {
+                                    echo '<option value="' . $data_devisi['id_devisi'] . '">' . $data_devisi['devisi'] . '</option>';
                                 }
                             }
                             ?>

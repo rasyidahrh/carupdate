@@ -24,6 +24,7 @@ include '../../function/koneksi.php';
 
     $no = 1;
     $id_devisi = $_GET['id_devisi'];
+    // print_r($id_devisi);
     $data = mysqli_fetch_array(mysqli_query($koneksi, "select * from devisi where id_devisi='$id_devisi'"));
     //print_r($data)
     ?>

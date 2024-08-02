@@ -4,8 +4,8 @@ require_once('../../function/helper.php');
 require_once('../../function/koneksi.php');
 
 $id_reserv = $_POST['id_reserv'];
+// proses update jika role admin
 if ($_SESSION['fk_role'] == 'admin') {
-    // proses update jika role admin
     $nama = $_POST['Nama_Peminjam'];
     // $nik = $_POST['Nik'];
     $uk = $_POST['Devisi'];

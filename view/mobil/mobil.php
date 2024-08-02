@@ -72,13 +72,8 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                                     <?php
                                     if ($_SESSION['fk_role'] == 'admin') {
                                         echo ' <td>
-<<<<<<< HEAD:mobil.php
-                            <a href="updatemobil.php?plat_nomer=' . $d["plat_nomer"] . '"><button class="btn btn-success"><i class="fas fa-fw fa-pen"></i></button></a>
-                            <a href="process/process_hapusmobil.php?plat_nomer=' . $d["plat_nomer"] . '" data-id="' . $d["plat_nomer"] . '" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger"><i class="fas fa-fw fa-trash"></i></a>
-=======
                             <a href="updatemobil.php?id=' . $d["plat_nomer"] . '"><button class="btn btn-success"><i class="fas fa-fw fa-pen"></i></button></a>
                             <a data-id="' . $d["plat_nomer"] . '" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger"><i class="fas fa-fw fa-trash"></i></a>
->>>>>>> 467a667a689f9e590781873aa3bf2f6c262e4a0c:view/mobil/mobil.php
                         </td>';
                                     } else {
                                         echo '';

@@ -23,15 +23,6 @@ require_once('../function/koneksi.php');
 
 <body>
     <?php
-<<<<<<< HEAD:dashboard.php
-    $filename = "page/$page.php";
-
-    if (file_exists($filename)) {
-        include_once($filename);
-    } else {
-        echo "404";
-    }
-=======
     include '../template/sidebar.php';
     include '../template/topbar.php';
     // $sidebar = '../template/sidebar.p7hp';
@@ -44,7 +35,6 @@ require_once('../function/koneksi.php');
     // } else {
     //     echo "404";
     // }
->>>>>>> 467a667a689f9e590781873aa3bf2f6c262e4a0c:view/dashboard.php
     $mobil = mysqli_query($koneksi, "select count(plat_nomer) from mobil");
     $jumlahMobil = mysqli_fetch_array($mobil)[0];
 

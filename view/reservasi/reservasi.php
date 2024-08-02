@@ -79,35 +79,11 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                                 <?php
                                 $no = 1;
                                 $data = mysqli_query($koneksi, "
-<<<<<<< HEAD:reservasi.php
-                        select 
-                            id_reserv,
-                            Nama_Peminjam,
-                            pegawai.id_nik as Nik,
-                            Devisi,
-                            pegawai.Jabatan as Jabatan,
-                            Tujuan,
-                            Pilih_Reserv,
-                            mobil.plat_nomer as Plat_nomer,
-                            mobil.Merek,
-                            mobil.Tipe_Mobil,
-                            mobil.Warna,
-                            WaktuOut,
-                            WaktuIn,
-                            KmOut,
-                            fotoout,
-                            KmIn, 
-                            fotoin,
-                            status
-                            from reserv 
-                            join pegawai on id_nik=reserv.Nik 
-                            join mobil on reserv.Plat_nomer=mobil.plat_nomer;");
-=======
                                 select 
                                     id_reserv,
                                     Nama_Peminjam,
                                     pegawai.id_nik as Nik,
-                                    Devisi,
+                                    devisi.devisi as devisi,
                                     pegawai.Jabatan as Jabatan,
                                     Tujuan,
                                     Pilih_Reserv,
@@ -125,8 +101,8 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                                     status
                                     from reserv 
                                     join pegawai on id_nik=reserv.Nik 
-                                    join mobil on reserv.Plat_nomer=mobil.plat_nomer;");
->>>>>>> 467a667a689f9e590781873aa3bf2f6c262e4a0c:view/reservasi/reservasi.php
+                                    join mobil on reserv.Plat_nomer=mobil.plat_nomer
+                                    join Devisi on Devisi.id_devisi=reserv.Devisi;");
                                 while ($d = mysqli_fetch_array($data)) {
 
                                 ?>
@@ -148,7 +124,7 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                                         <td><?= $no++; ?></td>
                                         <td><?= $d['Nama_Peminjam']; ?></td>
                                         <td><?= $d['Nik']; ?></td>
-                                        <td><?= $d['Devisi']; ?></td>
+                                        <td><?= $d['devisi']; ?></td>
                                         <td><?= $d['Jabatan']; ?></td>
                                         <td><?= $d['Tujuan']; ?></td>
                                         <td><?= $d['Pilih_Reserv']; ?></td>
