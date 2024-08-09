@@ -1,7 +1,7 @@
 <?php
-require_once('function/helper.php');
-include 'function/koneksi.php';
+require_once('../../function/helper.php');
 
+include '../../function/koneksi.php';
 
 
 $page = isset($_GET['page']) ? ($_GET['page']) : false;
@@ -15,6 +15,9 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
 
     <title>Tambah data perbaikan</title>
 
+    <?php include "../../template/header.php"; ?>
+
+
     <!-- css -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -25,15 +28,21 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
 
 <body>
     <?php
-    $topbar = "template/topbar.php";
-    $sidebar = "template/sidebar.php";
-    if (file_exists($sidebar) && file_exists($topbar)) {
-        include 'template/sidebar.php';
-        include 'template/topbar.php';
-    } else {
-        echo "404";
+    if (isset($_SESSION['status'])) {
+        echo '<div class="alert alert-primary alert-dismissible fade show" style="z-index: 1;position:absolute;transform: translate(-50%, -50%);  top: 10%;
+        left: 50%;" role="alert">
+              <span>' . $_SESSION['status'] . '</span>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>';
     }
+    unset($_SESSION['status']);
+
+    include '../../template/sidebar.php';
+    include '../../template/topbar.php';
     ?>
+
     <div id="content-wrapper" class="d-flex flex-column mb-3">
         <div class="container-fluid">
             <h1 class="h3 mb-4 text-gray-800">Data Perbaikan</h1>

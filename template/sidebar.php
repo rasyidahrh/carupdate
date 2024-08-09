@@ -58,11 +58,11 @@
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTiga" aria-expanded="true" aria-controls="collapseTiga">
                         <i class="fas fa-fw fa-key"></i>
-                        <span>Kerusakan</span>
+                        <span>Perbaikan</span>
                     </a>
                     <div id="collapseTiga" class="collapse" aria-labelledby="headingTiga" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="perbaikan.php">List Kerusakan</a>
+                            <a class="collapse-item" href="<?= BASE_URL ?>/view/perbaikan/perbaikan.php">List perbaikan</a>
                             <!-- <a class="collapse-item" href="addPerbaikan.php">Tambah Perbaikan</a> -->
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                             </div>
