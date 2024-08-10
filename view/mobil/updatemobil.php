@@ -60,10 +60,7 @@ include '../../function/helper.php';
                 <input type="submit" value="Simpan" class="btn btn-success">
             </form>
         </div>
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-        <script src="js/sb-admin-2.min.js"></script>
+        <?php include '../../template/footer.php'; ?>
     </div>
     </div>
 

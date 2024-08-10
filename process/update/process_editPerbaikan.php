@@ -6,6 +6,6 @@ require_once('../../function/koneksi.php');
 $id = $_POST['id'];
 $status = $_POST['status'];
 
-$query = mysqli_query($koneksi, "update perbaikan set status='$status' where id='$id'");
+$query = mysqli_query($koneksi, "update kerusakan set status='$status' where id='$id'");
 
-header("location:" . BASE_URL . "perbaikan.php");
+header("location:" . BASE_URL . "/view/perbaikan/perbaikan.php");
