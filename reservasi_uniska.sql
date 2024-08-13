@@ -77,9 +77,6 @@ INSERT INTO `devisi` (`id_devisi`, `devisi`) VALUES
 CREATE TABLE `kelayakan` (
   `id` int(20) NOT NULL,
   `plat_nomer` varchar(20) NOT NULL,
-  `tipe_mobil` varchar(50) NOT NULL,
-  `merek` varchar(50) NOT NULL,
-  `BBM` varchar(100) NOT NULL,
   `kerusakan` int(11) NOT NULL,
   `deskripsi` varchar(100) NOT NULL,
   `status` varchar(20) NOT NULL
@@ -89,27 +86,27 @@ CREATE TABLE `kelayakan` (
 -- Dumping data for table `kelayakan`
 --
 
-INSERT INTO `kelayakan` (`id`, `plat_nomer`, `tipe_mobil`, `merek`, `BBM`, `kerusakan`, `deskripsi`, `status`) VALUES
-(8, 'DA 1131 AP', 'MINI BUS', 'Toyota Avanza ', '35 liter', 1, '1. Ban Meletus', 'layak'),
-(9, 'B 9012 APS', 'MINI BUS', 'Daihatsu Xenia', '40 liter', 1, '1. Ac tidak dingin', 'layak'),
-(10, 'B 2231 APS', 'BOX', 'Toyota Hilux', '45 liter', 2, '1. Pintu belakang tidak bisa ditutup\r\n2. Body depan penyok', 'layak'),
-(12, 'DA 2314 AP', 'BOX', 'Toyota Hilux', '50 liter ', 3, '1. Ban meletus \r\n2. Mesin berasap\r\n3. Lampu panjang putus \r\n', 'pergantian'),
-(13, 'B 1123 APS', 'MINI BUS', 'Toyota Fortuner', '40 liter', 2, '1. Ban bocor \r\n2. Ac panas', 'layak'),
-(14, 'BH 1092 PS', 'MINI BUS', 'Nissan Juke', '50 liter ', 1, '1. Selang Radiator pecah', 'layak'),
-(15, 'AE 1123 AP', 'MINI BUS', 'Honda Mobilio ', '45 liter', 2, '1. Ban bocor \r\n2. Lampu Sen putus', 'layak'),
-(16, 'D 2314 APS', 'MINI BUS', 'Honda Crv', '55 liter', 3, '1. Body depan ringsek \r\n2. Setir tidak bisa rata \r\n3. turun mesin', 'pergantian'),
-(17, 'AB 4422 APS', 'SEDAN', 'Daihatsu Agya', '40 liter', 4, '1. Ac panas \r\n2. Kaca jendela tidak bisa turun \r\n3. Pintu  tidak bisa terkunci \r\n4. Spion lepas', 'pergantian'),
-(18, 'KH 3321 AP', 'SEDAN', 'Mazda', '50 liter ', 1, '1. Kopling lengket', 'layak'),
-(19, 'KT 5674 PS', 'MINI BUS', 'Mitsubishi Expander', '60 liter ', 2, '1. Rem blong \r\n2. Kampas kopling hangus', 'pergantian'),
-(20, 'AA 8723 PS', 'SEDAN', 'Chery', '55 liter', 1, '1. Spion kanan patah', 'layak'),
-(21, 'AD 2234 APS', 'SEDAN', 'KIA', '55 liter', 1, '1. Lampu sen putus', 'layak'),
-(22, 'K 4432 AP', 'MINI BUS', 'Hyundai Creta', '60 liter ', 2, '1. Mesin berasap \r\n2. Mobil tidak bisa menyala', 'layak'),
-(23, 'R 0021 APS', 'MINI BUS', 'Wuling Almaz', '65 liter', 1, '1. Lampu Panjang putus', 'layak'),
-(24, 'G 1111 APS', 'MINI BUS', 'Mitsubishi Pajero ', '70 liter', 3, '1. Ac panas \r\n2. Lampu pendek putus \r\n3. Spion kiri macet', 'layak'),
-(25, 'F 6666 APS', 'MINI BUS', 'hyundai Palised', '60 liter ', 1, '1.Oli rembes', 'layak'),
-(26, 'AG 3333 APS', 'MINI BUS', 'Volvo XC60', '55 liter', 2, '1. Oli rembes \r\n2. Knalpot meledak', 'layak'),
-(27, 'B 2222 AP', 'MINI BUS', 'Toyota Fortuner', '60 liter ', 1, '1. Mesin berasap', 'layak'),
-(28, 'D 4444 PS', 'SEDAN', 'Honda Jazz', '45 liter', 1, '1.Spion lepas', 'layak');
+INSERT INTO `kelayakan` (`id`, `plat_nomer`, `kerusakan`, `deskripsi`, `status`) VALUES
+(8, 'DA 1131 AP', 1, '1. Ban Meletus', 'layak'),
+(9, 'B 9012 APS', 1, '1. Ac tidak dingin', 'layak'),
+(10, 'B 2231 APS', 2, '1. Pintu belakang tidak bisa ditutup\r\n2. Body depan penyok', 'layak'),
+(12, 'DA 2314 AP', 3, '1. Ban meletus \r\n2. Mesin berasap\r\n3. Lampu panjang putus \r\n', 'pergantian'),
+(13, 'B 1123 APS', 2, '1. Ban bocor \r\n2. Ac panas', 'layak'),
+(14, 'BH 1092 PS', 1, '1. Selang Radiator pecah', 'layak'),
+(15, 'AE 1123 AP', 2, '1. Ban bocor \r\n2. Lampu Sen putus', 'layak'),
+(16, 'D 2314 APS', 3, '1. Body depan ringsek \r\n2. Setir tidak bisa rata \r\n3. turun mesin', 'pergantian'),
+(17, 'AB 4422 APS', 4, '1. Ac panas \r\n2. Kaca jendela tidak bisa turun \r\n3. Pintu  tidak bisa terkunci \r\n4. Spion lepas', 'pergantian'),
+(18, 'KH 3321 AP', 1, '1. Kopling lengket', 'layak'),
+(19, 'KT 5674 PS', 2, '1. Rem blong \r\n2. Kampas kopling hangus', 'pergantian'),
+(20, 'AA 8723 PS', 1, '1. Spion kanan patah', 'layak'),
+(21, 'AD 2234 APS', 1, '1. Lampu sen putus', 'layak'),
+(22, 'K 4432 AP', 2, '1. Mesin berasap \r\n2. Mobil tidak bisa menyala', 'layak'),
+(23, 'R 0021 APS', 1, '1. Lampu Panjang putus', 'layak'),
+(24, 'G 1111 APS', 3, '1. Ac panas \r\n2. Lampu pendek putus \r\n3. Spion kiri macet', 'layak'),
+(25, 'F 6666 APS', 1, '1.Oli rembes', 'layak'),
+(26, 'AG 3333 APS', 2, '1. Oli rembes \r\n2. Knalpot meledak', 'layak'),
+(27, 'B 2222 AP', 1, '1. Mesin berasap', 'layak'),
+(28, 'D 4444 PS', 1, '1.Spion lepas', 'layak');
 
 -- --------------------------------------------------------
 
@@ -124,6 +121,8 @@ CREATE TABLE `mobil` (
   `warna` varchar(50) NOT NULL,
   `BBM` varchar(50) NOT NULL,
   `foto` text NOT NULL,
+  `noMesin` varchar(20) NOT NULL,
+  `noRangka` varchar(20) NOT NULL,
   `jumlah` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -131,28 +130,28 @@ CREATE TABLE `mobil` (
 -- Dumping data for table `mobil`
 --
 
-INSERT INTO `mobil` (`plat_nomer`, `merek`, `tipe_mobil`, `warna`, `BBM`, `foto`, `jumlah`) VALUES
-('AA 8723 PS', 'Chery', 'SEDAN', 'Merah', '55 liter', 'download (6).jpg', 0),
-('AB 4422 APS', 'Daihatsu Agya', 'SEDAN', 'Putih', '40 liter', 'download (2).jpg', 0),
-('AD 2234 APS', 'KIA', 'SEDAN', 'Putih', '55 liter', 'download (7).jpg', 1),
-('AE 1123 AP', 'Honda Mobilio ', 'MINI BUS', 'Grey', '45 liter', 'download.jpg', 1),
-('AG 3333 APS', 'Volvo XC60', 'SEDAN', 'Silver', '55 liter', 'download (12).jpg', 1),
-('B 1123 APS', 'Toyota Fortuner', 'MINI BUS', 'Merah', '40 liter', '192657767.jpg', 1),
-('B 2222 AP', 'Toyota Fortuner', 'MINI BUS', 'Hitam', '60 liter', 'download (13).jpg', 1),
-('B 2231 APS', 'Toyota Hilux', 'BOX', 'Hitam', '45 liter', 'attitude-black-metalic.png', 1),
-('B 9012 APS', 'Daihatsu Xenia', 'MINI BUS', 'Hitam', '40 liter', 'xenia.jpg', 1),
-('BH 1092 PS', 'Nissan Juke', 'MINI BUS', 'Grey', '50 liter', '2017-nissan-juke-premium-special-edition-2.jpg', 1),
-('D 2314 APS', 'Honda Crv', 'MINIBUS', 'Metalic Purple', '55 liter', 'download (1).jpg', 1),
-('D 4444 PS', 'Honda Jazz', 'SEDAN', 'Putih', '45 liter', 'download (14).jpg', 1),
-('DA 1131 AP', 'Toyota Avanza ', 'MINI BUS', 'Silver', '35 liter', '75a7d5447718def42127e7d05236b52b.jpg', 1),
-('DA 2314 AP', 'Toyota Hilux', 'BOX', 'Putih', '50 Liter', 'download (3).jpg', 1),
-('F 6666 APS', 'hyundai Palised', 'MINI BUS', 'Merah', '60 liter', 'download (11).jpg', 1),
-('G 1111 APS', 'Mitsubishi Pajero ', 'MINI BUS', 'Putih', '70 liter', 'download (10).jpg', 1),
-('K 4432 AP', 'Hyundai Creta', 'MINI BUS', 'Hitam', '60 liter', 'download (8).jpg', 1),
-('KH 3312 AS', 'toyota Ayla', 'MINI BUS', 'biru', '45 liter', 'Angkasa-Pura-Logo.jpg', 1),
-('KH 3321 AP', 'Mazda', 'SEDAN', 'Putih', '50 Liter', 'download (4).jpg', 1),
-('KT 5674 PS', 'Mitsubishi Expander', 'MINI BUS', 'Metalic Black', '60 liter', 'download (5).jpg', 1),
-('R 0021 APS', 'Wuling Almaz', 'MINI BUS', 'Putih', '65 Liter', 'download (9).jpg', 1);
+INSERT INTO `mobil` (`plat_nomer`, `merek`, `tipe_mobil`, `warna`, `BBM`, `foto`,`noMesin`,`noRangka`, `jumlah`) VALUES
+('AA 8723 PS', 'Chery', 'SEDAN', 'Merah', '55 liter', 'download (6).jpg', '123a','123a',1),
+('AB 4422 APS', 'Daihatsu Agya', 'SEDAN', 'Putih', '40 liter', 'download (2).jpg', '123b','123b',0),
+('AD 2234 APS', 'KIA', 'SEDAN', 'Putih', '55 liter', 'download (7).jpg', '123c','123c',1),
+('AE 1123 AP', 'Honda Mobilio ', 'MINI BUS', 'Grey', '45 liter', 'download.jpg', '123d','123d',1),
+('AG 3333 APS', 'Volvo XC60', 'SEDAN', 'Silver', '55 liter', 'download (12).jpg', '123e','123e',1),
+('B 1123 APS', 'Toyota Fortuner', 'MINI BUS', 'Merah', '40 liter', '192657767.jpg', '123f','123f',1),
+('B 2222 AP', 'Toyota Fortuner', 'MINI BUS', 'Hitam', '60 liter', 'download (13).jpg', '123g','123g',1),
+('B 2231 APS', 'Toyota Hilux', 'BOX', 'Hitam', '45 liter', 'attitude-black-metalic.png', '123h','123i',1),
+('B 9012 APS', 'Daihatsu Xenia', 'MINI BUS', 'Hitam', '40 liter', 'xenia.jpg', '123j','123j',1),
+('BH 1092 PS', 'Nissan Juke', 'MINI BUS', 'Grey', '50 liter', '2017-nissan-juke-premium-special-edition-2.jpg', '123k','123k',1),
+('D 2314 APS', 'Honda Crv', 'MINIBUS', 'Metalic Purple', '55 liter', 'download (1).jpg', '123l','123l',1),
+('D 4444 PS', 'Honda Jazz', 'SEDAN', 'Putih', '45 liter', 'download (14).jpg', '123m','123m',1),
+('DA 1131 AP', 'Toyota Avanza ', 'MINI BUS', 'Silver', '35 liter', '75a7d5447718def42127e7d05236b52b.jpg', '123n','123n',1),
+('DA 2314 AP', 'Toyota Hilux', 'BOX', 'Putih', '50 Liter', 'download (3).jpg', '123o','123o',1),
+('F 6666 APS', 'hyundai Palised', 'MINI BUS', 'Merah', '60 liter', 'download (11).jpg', '123p','123p',1),
+('G 1111 APS', 'Mitsubishi Pajero ', 'MINI BUS', 'Putih', '70 liter', 'download (10).jpg', '123q','123q',1),
+('K 4432 AP', 'Hyundai Creta', 'MINI BUS', 'Hitam', '60 liter', 'download (8).jpg', '123r','123r',1),
+('KH 3312 AS', 'toyota Ayla', 'MINI BUS', 'biru', '45 liter', 'Angkasa-Pura-Logo.jpg', '123s','123s',1),
+('KH 3321 AP', 'Mazda', 'SEDAN', 'Putih', '50 Liter', 'download (4).jpg', '123t','123t',1),
+('KT 5674 PS', 'Mitsubishi Expander', 'MINI BUS', 'Metalic Black', '60 liter', 'download (5).jpg', '123u','123u',1),
+('R 0021 APS', 'Wuling Almaz', 'MINI BUS', 'Putih', '65 Liter', 'download (9).jpg','123v','123v', 1);
 
 -- --------------------------------------------------------
 
@@ -163,9 +162,6 @@ INSERT INTO `mobil` (`plat_nomer`, `merek`, `tipe_mobil`, `warna`, `BBM`, `foto`
 CREATE TABLE `pajak` (
   `id` int(20) NOT NULL,
   `plat_nomer` varchar(20) NOT NULL,
-  `no_rangka` varchar(50) NOT NULL,
-  `no_mesin` varchar(50) NOT NULL,
-  `tipe` varchar(50) NOT NULL,
   `statuspemba` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

@@ -10,4 +10,4 @@ $id = $_GET['id'];
 $query = mysqli_query($koneksi, "DELETE FROM kelayakan WHERE id='$id'");
 
 
-header("location:" . BASE_URL . "kelayakan.php");
+header("location:" . BASE_URL . "/view/kelayakan/kelayakan.php");

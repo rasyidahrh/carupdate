@@ -79,38 +79,51 @@
                     </a>
                     <div id="collapseKelayakan" class="collapse" aria-labelledby="headingTiga" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="kelayakan.php">List Kelayakan</a>
+                            <a class="collapse-item" href="' . BASE_URL . '/view/kelayakan/kelayakan.php">List Kelayakan</a>
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                             </div>
                         </div>
                     </div>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAsuransiK" aria-expanded="true" aria-controls="collapseAsuransiK">
-                    <i class="fas fa-fw fa-key"></i>
-                    <span>Asuransi Kendaraan</span>
-                </a>
-                <div id="collapseAsuransiK" class="collapse" aria-labelledby="headingTiga" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="kelayakan.php">List Package Asuransi</a>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAsuransiK" aria-expanded="true" aria-controls="collapseAsuransiK">
+                        <i class="fas fa-fw fa-key"></i>
+                        <span>Asuransi Kendaraan</span>
+                    </a>
+                    <div id="collapseAsuransiK" class="collapse" aria-labelledby="headingTiga" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="kelayakan.php">List Package Asuransi</a>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                            </div>
                         </div>
                     </div>
-                </div>
-            </li>\
-            <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAsuransi" aria-expanded="true" aria-controls="collapseAsuransi">
-                <i class="fas fa-fw fa-key"></i>
-                <span>Asuransi</span>
-            </a>
-            <div id="collapseAsuransi" class="collapse" aria-labelledby="headingTiga" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="kelayakan.php">List Kelayakan</a>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAsuransi" aria-expanded="true" aria-controls="collapseAsuransi">
+                        <i class="fas fa-fw fa-key"></i>
+                        <span>Asuransi</span>
+                    </a>
+                    <div id="collapseAsuransi" class="collapse" aria-labelledby="headingTiga" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="' . BASE_URL . '/view/asuransi/asuransi.php">List asuransi</a>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </li>';
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePajak" aria-expanded="true" aria-controls="collapsePajak">
+                        <i class="fas fa-fw fa-key"></i>
+                        <span>Pajak</span>
+                    </a>
+                    <div id="collapsePajak" class="collapse" aria-labelledby="headingTiga" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="' . BASE_URL . '/view/pajak/pajak.php">pajak</a>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                            </div>
+                        </div>
+                    </div>
+                </li>';
                 } else {
                     echo '';
                 }

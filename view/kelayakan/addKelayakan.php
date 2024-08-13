@@ -1,6 +1,6 @@
 <?php
-require_once('function/helper.php');
-include 'function/koneksi.php';
+include '../../function/koneksi.php';
+include '../../function/helper.php';
 
 
 
@@ -14,25 +14,13 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Tambah data perbaikan</title>
-
-    <!-- css -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <?php include "../../template/header.php"; ?>
 </head>
 
 <body>
     <?php
-    $topbar = "template/topbar.php";
-    $sidebar = "template/sidebar.php";
-    if (file_exists($sidebar) && file_exists($topbar)) {
-        include 'template/sidebar.php';
-        include 'template/topbar.php';
-    } else {
-        echo "404";
-    }
+    include '../../template/sidebar.php';
+    include '../../template/topbar.php';
     ?>
     <div id="content-wrapper" class="d-flex flex-column mb-3">
         <div class="container-fluid">
@@ -40,11 +28,9 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
             <div class="card">
                 <div class="card-body">
                     <hr>
-                    <a href="<?php BASE_URL ?>kelayakan.php"><button class="btn btn-danger">Kembali</button></a>
+                    <a href="kelayakan.php"><button class="btn btn-danger">Kembali</button></a>
                     <hr>
-                    <form action="process/process_tambahkelayakan.php" method="post">
-                        <div class="mb-3">
-                        </div>
+                    <form action="<?= BASE_URL ?>/process/add/process_tambahkelayakan.php" method="post">
                         <div class="mb-3">
                             <label for="" class="form-label">Plat Nomer</label>
                             <select name="plat_nomer" id="plat nomer" class="form-control" require>
@@ -52,32 +38,10 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                                 <?phP
                                 $sql_mobil = mysqli_query($koneksi, "SELECT * FROM mobil") or die(mysqli_error($koneksi));
                                 while ($data_mobil = mysqli_fetch_array($sql_mobil)) {
-                                    echo '<option value="' . $data_mobil['id'] . '">' . $data_mobil['plat_nomer'] . '</option>
+                                    echo '<option value="' . $data_mobil['plat_nomer'] . '">' . $data_mobil['plat_nomer'] . '</option>
                                      ';
                                 }
                                 ?>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Merek</label>
-                            <select name="merek" id="merek" class="form-control col" require>
-                                <option value="">--Pilih--</option>
-                                <?php
-                                $sql_mobil = mysqli_query($koneksi, "SELECT distinct merek  FROM mobil") or die(mysqli_error($koneksi));
-                                while ($data = mysqli_fetch_array($sql_mobil)) {
-                                    echo "<option value='" . $data['merek'] . "'>" . $data['merek'] . "</option>";
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Tipe Mobil</label>
-                            <select name="tipe_mobil" id="tipe_mobil" class="form-control" required>
-                                <option value="">--pilih--</option>
-                                <option value="MINI BUS">MiniBus</option>
-                                <option value="SEDAN">Sedan</option>
-                                <option value="BUS">Bus</option>
-                                <option value="BOX">Box</option>
                             </select>
                         </div>
                         <div class="mb-3">
@@ -105,10 +69,7 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
             <input type="submit" value="Ajukan" class="btn btn-success">
             </form>
         </div>
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-        <script src="js/sb-admin-2.min.js"></script>
+        <?php include '../../template/footer.php'; ?>
     </div>
     </div>
 

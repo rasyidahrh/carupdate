@@ -1,7 +1,6 @@
 <?php
-require_once('function/helper.php');
-
-include 'function/koneksi.php';
+include '../../function/koneksi.php';
+include '../../function/helper.php';
 
 $page = isset($_GET['page']) ? ($_GET['page']) : false;
 ?>
@@ -17,17 +16,7 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
     <meta name="author" content="">
 
     <title>APS RESERVASI </title>
-
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <?php include "../../template/header.php"; ?>
 </head>
 
 <body>
@@ -44,49 +33,14 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
             </div>';
     }
     unset($_SESSION['status']);
-    $topbar = "template/topbar.php";
-    $sidebar = "template/sidebar.php";
-    if (file_exists($sidebar) && file_exists($topbar)) {
-        include 'template/sidebar.php';
-        include 'template/topbar.php';
-    } else {
-        echo "404";
-    }
+    include '../../template/sidebar.php';
+    include '../../template/topbar.php';
     ?>
 
-    <!-- <select name="filter" id="">
-        <option value=""></option>
-    </select> -->
     <div id="content-wrapper" class="d-flex flex-column">
         <div class="container-fluid">
             <h1 class="h3 mb-4 text-gray-800">Data Kelayakan</h1>
             <div class="card">
-                <!-- <form action="print/reservasiByDate.php" method="post">
-                    <label for="">Jenis Reservasi</label>
-                    <select name="reservasi" class="form-control col-sm-2" id="">
-                        <option value="semua">dalam dan luar</option>
-                        <option value="Dalam">dalam</option>
-                        <option value="Luar">luar</option>
-                    </select>
-
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label class="col-sm-3 control-label" for="">Dari</label>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="col control-label" for="">Sampai</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <input type="date" value="<?= date('Y-m-d') ?>" name="tgl1" class="form-control col">
-                        </div>
-                        <div class="col-md-3">
-                            <input type="date" value="<?= date('Y-m-d') ?>" name="tgl2" class="form-control col">
-                        </div>
-                    </div>
-                    <input type="submit" value="print">
-                </form> -->
                 <div class="card-body">
                     <hr>
                     <a href="addKelayakan.php"><button class="btn btn-success">Lapor Kelayakan</button></a>
@@ -113,15 +67,15 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                                 select 
                                     kelayakan.id,
                                     mobil.plat_nomer,
-                                    kelayakan.tipe_mobil,
-                                    kelayakan.merek,
-                                    kelayakan.BBM,
-                                    perbaikan,
+                                    tipe_mobil,
+                                    merek,
+                                    BBM,
+                                    kerusakan,
                                     deskripsi,
                                     status
                                     from
                                     kelayakan
-                                    join mobil on mobil.id=kelayakan.plat_nomer");
+                                    join mobil on mobil.plat_nomer=kelayakan.plat_nomer                                     ");
                                 while ($d = mysqli_fetch_array($data)) {
 
                                 ?>
@@ -130,8 +84,7 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                                             <a href="updateKelayakan.php?id=<?php echo $d["id"] ?>"><button class="btn btn-success"><i class="fas fa-fw fa-pen"></i></button></a>
                                             <?php
                                             if ($_SESSION['fk_role'] == 'admin') {
-                                                echo '
-                                        <a href="process/process_hapusKelayakan.php?id=' . $d["id"] . '" data-id="' . $d["id"] . '" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger"><i class="fas fa-fw fa-trash"></i></a> </td>';
+                                                echo '<a data-id="' . $d["id"] . '" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger"><i class="fas fa-fw fa-trash"></i></a> </td>';
                                             } else {
                                                 echo '';
                                             }
@@ -142,7 +95,7 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                                         <td><?= $d['merek']; ?></td>
                                         <td><?= $d['tipe_mobil']; ?></td>
                                         <td><?= $d['BBM']; ?></td>
-                                        <td><?= $d['perbaikan']; ?></td>
+                                        <td><?= $d['kerusakan']; ?></td>
                                         <td><?= $d['deskripsi']; ?></td>
                                         <td><?= $d['status']; ?></td>
                                     </tr>
@@ -188,20 +141,11 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                 $('#exampleModal .btn-primary').click(function() {
                     var id = $(this).data('id');
                     // Lakukan tindakan penghapusan sesuai dengan URL yang benar
-                    window.location.href = 'process/process_hapusKelayakan.php?id=' + id;
+                    window.location.href = '<?= BASE_URL ?>/process/delete/process_hapusKelayakan.php?id=' + id;
                 });
             });
         </script>
-        <center><a href="updateReserv.php;"></a></center>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-        <script src="js/sb-admin-2.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-        <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+        <?php include '../../template/footer.php'; ?>
         <script>
             $(document).ready(function() {
                 $('#myTable').DataTable({
