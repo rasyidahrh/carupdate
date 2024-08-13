@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 31, 2024 at 05:04 PM
+-- Generation Time: Aug 13, 2024 at 05:50 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.12
 
@@ -87,7 +87,7 @@ CREATE TABLE `kelayakan` (
 --
 
 INSERT INTO `kelayakan` (`id`, `plat_nomer`, `kerusakan`, `deskripsi`, `status`) VALUES
-(8, 'DA 1131 AP', 1, '1. Ban Meletus', 'layak'),
+(8, 'DA 1131 AP', 12, '1. Ban Meletus2', 'pergantian'),
 (9, 'B 9012 APS', 1, '1. Ac tidak dingin', 'layak'),
 (10, 'B 2231 APS', 2, '1. Pintu belakang tidak bisa ditutup\r\n2. Body depan penyok', 'layak'),
 (12, 'DA 2314 AP', 3, '1. Ban meletus \r\n2. Mesin berasap\r\n3. Lampu panjang putus \r\n', 'pergantian'),
@@ -107,102 +107,6 @@ INSERT INTO `kelayakan` (`id`, `plat_nomer`, `kerusakan`, `deskripsi`, `status`)
 (26, 'AG 3333 APS', 2, '1. Oli rembes \r\n2. Knalpot meledak', 'layak'),
 (27, 'B 2222 AP', 1, '1. Mesin berasap', 'layak'),
 (28, 'D 4444 PS', 1, '1.Spion lepas', 'layak');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mobil`
---
-
-CREATE TABLE `mobil` (
-  `plat_nomer` varchar(20) NOT NULL,
-  `merek` varchar(50) NOT NULL,
-  `tipe_mobil` varchar(50) NOT NULL,
-  `warna` varchar(50) NOT NULL,
-  `BBM` varchar(50) NOT NULL,
-  `foto` text NOT NULL,
-  `noMesin` varchar(20) NOT NULL,
-  `noRangka` varchar(20) NOT NULL,
-  `jumlah` int(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `mobil`
---
-
-INSERT INTO `mobil` (`plat_nomer`, `merek`, `tipe_mobil`, `warna`, `BBM`, `foto`,`noMesin`,`noRangka`, `jumlah`) VALUES
-('AA 8723 PS', 'Chery', 'SEDAN', 'Merah', '55 liter', 'download (6).jpg', '123a','123a',1),
-('AB 4422 APS', 'Daihatsu Agya', 'SEDAN', 'Putih', '40 liter', 'download (2).jpg', '123b','123b',0),
-('AD 2234 APS', 'KIA', 'SEDAN', 'Putih', '55 liter', 'download (7).jpg', '123c','123c',1),
-('AE 1123 AP', 'Honda Mobilio ', 'MINI BUS', 'Grey', '45 liter', 'download.jpg', '123d','123d',1),
-('AG 3333 APS', 'Volvo XC60', 'SEDAN', 'Silver', '55 liter', 'download (12).jpg', '123e','123e',1),
-('B 1123 APS', 'Toyota Fortuner', 'MINI BUS', 'Merah', '40 liter', '192657767.jpg', '123f','123f',1),
-('B 2222 AP', 'Toyota Fortuner', 'MINI BUS', 'Hitam', '60 liter', 'download (13).jpg', '123g','123g',1),
-('B 2231 APS', 'Toyota Hilux', 'BOX', 'Hitam', '45 liter', 'attitude-black-metalic.png', '123h','123i',1),
-('B 9012 APS', 'Daihatsu Xenia', 'MINI BUS', 'Hitam', '40 liter', 'xenia.jpg', '123j','123j',1),
-('BH 1092 PS', 'Nissan Juke', 'MINI BUS', 'Grey', '50 liter', '2017-nissan-juke-premium-special-edition-2.jpg', '123k','123k',1),
-('D 2314 APS', 'Honda Crv', 'MINIBUS', 'Metalic Purple', '55 liter', 'download (1).jpg', '123l','123l',1),
-('D 4444 PS', 'Honda Jazz', 'SEDAN', 'Putih', '45 liter', 'download (14).jpg', '123m','123m',1),
-('DA 1131 AP', 'Toyota Avanza ', 'MINI BUS', 'Silver', '35 liter', '75a7d5447718def42127e7d05236b52b.jpg', '123n','123n',1),
-('DA 2314 AP', 'Toyota Hilux', 'BOX', 'Putih', '50 Liter', 'download (3).jpg', '123o','123o',1),
-('F 6666 APS', 'hyundai Palised', 'MINI BUS', 'Merah', '60 liter', 'download (11).jpg', '123p','123p',1),
-('G 1111 APS', 'Mitsubishi Pajero ', 'MINI BUS', 'Putih', '70 liter', 'download (10).jpg', '123q','123q',1),
-('K 4432 AP', 'Hyundai Creta', 'MINI BUS', 'Hitam', '60 liter', 'download (8).jpg', '123r','123r',1),
-('KH 3312 AS', 'toyota Ayla', 'MINI BUS', 'biru', '45 liter', 'Angkasa-Pura-Logo.jpg', '123s','123s',1),
-('KH 3321 AP', 'Mazda', 'SEDAN', 'Putih', '50 Liter', 'download (4).jpg', '123t','123t',1),
-('KT 5674 PS', 'Mitsubishi Expander', 'MINI BUS', 'Metalic Black', '60 liter', 'download (5).jpg', '123u','123u',1),
-('R 0021 APS', 'Wuling Almaz', 'MINI BUS', 'Putih', '65 Liter', 'download (9).jpg','123v','123v', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pajak`
---
-
-CREATE TABLE `pajak` (
-  `id` int(20) NOT NULL,
-  `plat_nomer` varchar(20) NOT NULL,
-  `statuspemba` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pegawai`
---
-
-CREATE TABLE `pegawai` (
-  `id_nik` int(20) NOT NULL,
-  `Nama` varchar(50) NOT NULL,
-  `fk_devisi` varchar(50) NOT NULL,
-  `Jabatan` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `pegawai`
---
-
-INSERT INTO `pegawai` (`id_nik`, `Nama`, `fk_devisi`, `Jabatan`) VALUES
-(1003, 'Himawa Alatas ', 'Accounting & Budgeting', 'Staff'),
-(1024, 'Gralia Sinaga', 'HR Service, Compensation, Benefit', 'Staff'),
-(1054, 'Aisyah Tamara ', 'Deployement', 'Staff'),
-(1092, 'Afif Alhajiq', 'Equipment & Technology ', 'Staff'),
-(1119, 'Sadewa Sanjaya', 'HSE & Quality', 'Staff'),
-(1135, 'Raditya Rahman', 'Operational Cleaning', 'SPV'),
-(1211, 'Fatricia Alliya', 'Collection', 'Staff'),
-(1259, 'Elang Winata', 'AR AP1 Group', 'SPV'),
-(1312, 'Himana Sagala ', 'GA, Asset, Inventory Management', 'Staff'),
-(1501, 'Langit Alvanaro', 'GA, Asset, Inventory Management', 'Staff'),
-(1672, 'Danita Alwiya', 'HSE & Quality', 'Staff'),
-(1682, 'Mawi Alkatiri ', 'Facility Management', 'Staff'),
-(1862, 'Rayza Anindita ', 'EQ & Tech', 'SPV'),
-(1929, 'Rasya Algifari', 'Collection', 'Staff'),
-(2012, 'Rafiki Walaya ', 'Human Capital', 'SPV'),
-(2029, 'Gestara Pradeepa', 'EQ & Tech', 'Staff'),
-(2112, 'Willy Salwinata', 'Accounting & Budgeting', 'Staff'),
-(2119, 'Jeevika Nayana', 'Equipment & Technology ', 'Staff'),
-(2325, 'Grasia Altaf ', 'Deployement', 'Staff'),
-(2939, 'Alexa Norzahra', 'Facility Management', 'Staff');
 
 -- --------------------------------------------------------
 
@@ -247,6 +151,110 @@ INSERT INTO `kerusakan` (`id`, `plat_nomer`, `nama_pelapor`, `Nik`, `Devisi`, `t
 (30, 'DA 2314 AP', 'Jeevika Nayana', 2119, 'Equipment & Technology ', 'Tinjauan Proyek', '2024-02-28 17:15:00', 'Tidak Bisa Menyala', 'pending'),
 (31, 'B 2231 APS', 'Grasia Altaf ', 2325, 'Deployement', 'Tinjauan TPS', '2024-03-04 07:15:00', 'body penyok ', 'sudah diperbaiki'),
 (32, 'B 2231 APS', 'Willy Salwinata', 2112, 'Accounting & Budgeting', 'Rapat Luar', '2024-02-27 23:18:00', 'Ban Bocor ', 'sudah diperbaiki');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mobil`
+--
+
+CREATE TABLE `mobil` (
+  `plat_nomer` varchar(20) NOT NULL,
+  `merek` varchar(50) NOT NULL,
+  `tipe_mobil` varchar(50) NOT NULL,
+  `warna` varchar(50) NOT NULL,
+  `BBM` varchar(50) NOT NULL,
+  `foto` text NOT NULL,
+  `noMesin` varchar(20) NOT NULL,
+  `noRangka` varchar(20) NOT NULL,
+  `jumlah` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `mobil`
+--
+
+INSERT INTO `mobil` (`plat_nomer`, `merek`, `tipe_mobil`, `warna`, `BBM`, `foto`, `noMesin`, `noRangka`, `jumlah`) VALUES
+('AA 8723 PS', 'Chery', 'SEDAN', 'Merah', '55 liter', 'download (6).jpg', '123a', '123a', 1),
+('AB 4422 APS', 'Daihatsu Agya', 'SEDAN', 'Putih', '40 liter', 'download (2).jpg', '123b', '123b', 0),
+('AD 2234 APS', 'KIA', 'SEDAN', 'Putih', '55 liter', 'download (7).jpg', '123c', '123c', 1),
+('AE 1123 AP', 'Honda Mobilio ', 'MINI BUS', 'Grey', '45 liter', 'download.jpg', '123d', '123d', 1),
+('AG 3333 APS', 'Volvo XC60', 'SEDAN', 'Silver', '55 liter', 'download (12).jpg', '123e', '123e', 1),
+('B 1123 APS', 'Toyota Fortuner', 'MINI BUS', 'Merah', '40 liter', '192657767.jpg', '123f', '123f', 1),
+('B 2222 AP', 'Toyota Fortuner', 'MINI BUS', 'Hitam', '60 liter', 'download (13).jpg', '123g', '123g', 1),
+('B 2231 APS', 'Toyota Hilux', 'BOX', 'Hitam', '45 liter', 'attitude-black-metalic.png', '123h', '123i', 1),
+('B 9012 APS', 'Daihatsu Xenia', 'MINI BUS', 'Hitam', '40 liter', 'xenia.jpg', '123j', '123j', 1),
+('BH 1092 PS', 'Nissan Juke', 'MINI BUS', 'Grey', '50 liter', '2017-nissan-juke-premium-special-edition-2.jpg', '123k', '123k', 1),
+('D 2314 APS', 'Honda Crv', 'MINIBUS', 'Metalic Purple', '55 liter', 'download (1).jpg', '123l', '123l', 1),
+('D 4444 PS', 'Honda Jazz', 'SEDAN', 'Putih', '45 liter', 'download (14).jpg', '123m', '123m', 1),
+('DA 1131 AP', 'Toyota Avanza ', 'MINI BUS', 'Silver', '35 liter', '75a7d5447718def42127e7d05236b52b.jpg', '123n', '123n', 1),
+('DA 2314 AP', 'Toyota Hilux', 'BOX', 'Putih', '50 Liter', 'download (3).jpg', '123o', '123o', 1),
+('F 6666 APS', 'hyundai Palised', 'MINI BUS', 'Merah', '60 liter', 'download (11).jpg', '123p', '123p', 1),
+('G 1111 APS', 'Mitsubishi Pajero ', 'MINI BUS', 'Putih', '70 liter', 'download (10).jpg', '123q', '123q', 1),
+('K 4432 AP', 'Hyundai Creta', 'MINI BUS', 'Hitam', '60 liter', 'download (8).jpg', '123r', '123r', 1),
+('KH 3312 AS', 'toyota Ayla', 'MINI BUS', 'biru', '45 liter', 'Angkasa-Pura-Logo.jpg', '123s', '123s', 1),
+('KH 3321 AP', 'Mazda', 'SEDAN', 'Putih', '50 Liter', 'download (4).jpg', '123t', '123t', 1),
+('KT 5674 PS', 'Mitsubishi Expander', 'MINI BUS', 'Metalic Black', '60 liter', 'download (5).jpg', '123u', '123u', 1),
+('R 0021 APS', 'Wuling Almaz', 'MINI BUS', 'Putih', '65 Liter', 'download (9).jpg', '123v', '123v', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pajak`
+--
+
+CREATE TABLE `pajak` (
+  `id` int(20) NOT NULL,
+  `plat_nomer` varchar(20) NOT NULL,
+  `statuspemba` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pajak`
+--
+
+INSERT INTO `pajak` (`id`, `plat_nomer`, `statuspemba`) VALUES
+(5, 'AA 8723 PS', 'tahunan'),
+(6, 'D 2314 APS', '5 tahun');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pegawai`
+--
+
+CREATE TABLE `pegawai` (
+  `id_nik` int(20) NOT NULL,
+  `Nama` varchar(50) NOT NULL,
+  `fk_devisi` varchar(50) NOT NULL,
+  `Jabatan` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pegawai`
+--
+
+INSERT INTO `pegawai` (`id_nik`, `Nama`, `fk_devisi`, `Jabatan`) VALUES
+(1003, 'Himawa Alatas ', 'Accounting & Budgeting', 'Staff'),
+(1024, 'Gralia Sinaga', 'HR Service, Compensation, Benefit', 'Staff'),
+(1054, 'Aisyah Tamara ', 'Deployement', 'Staff'),
+(1092, 'Afif Alhajiq', 'Equipment & Technology ', 'Staff'),
+(1119, 'Sadewa Sanjaya', 'HSE & Quality', 'Staff'),
+(1135, 'Raditya Rahman', 'Operational Cleaning', 'SPV'),
+(1211, 'Fatricia Alliya', 'Collection', 'Staff'),
+(1259, 'Elang Winata', 'AR AP1 Group', 'SPV'),
+(1312, 'Himana Sagala ', 'GA, Asset, Inventory Management', 'Staff'),
+(1501, 'Langit Alvanaro', 'GA, Asset, Inventory Management', 'Staff'),
+(1672, 'Danita Alwiya', 'HSE & Quality', 'Staff'),
+(1682, 'Mawi Alkatiri ', 'Facility Management', 'Staff'),
+(1862, 'Rayza Anindita ', 'EQ & Tech', 'SPV'),
+(1929, 'Rasya Algifari', 'Collection', 'Staff'),
+(2012, 'Rafiki Walaya ', 'Human Capital', 'SPV'),
+(2029, 'Gestara Pradeepa', 'EQ & Tech', 'Staff'),
+(2112, 'Willy Salwinata', 'Accounting & Budgeting', 'Staff'),
+(2119, 'Jeevika Nayana', 'Equipment & Technology ', 'Staff'),
+(2325, 'Grasia Altaf ', 'Deployement', 'Staff'),
+(2939, 'Alexa Norzahra', 'Facility Management', 'Staff');
 
 -- --------------------------------------------------------
 
@@ -421,6 +429,13 @@ ALTER TABLE `kelayakan`
   ADD KEY `plat_nomer` (`plat_nomer`);
 
 --
+-- Indexes for table `kerusakan`
+--
+ALTER TABLE `kerusakan`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `mobil` (`plat_nomer`);
+
+--
 -- Indexes for table `mobil`
 --
 ALTER TABLE `mobil`
@@ -439,13 +454,6 @@ ALTER TABLE `pajak`
 ALTER TABLE `pegawai`
   ADD PRIMARY KEY (`id_nik`),
   ADD KEY `pegawai_ibfk_1` (`fk_devisi`);
-
---
--- Indexes for table `kerusakan`
---
-ALTER TABLE `kerusakan`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `mobil` (`plat_nomer`);
 
 --
 -- Indexes for table `reserv`
@@ -498,19 +506,19 @@ ALTER TABLE `asuransi`
 -- AUTO_INCREMENT for table `kelayakan`
 --
 ALTER TABLE `kelayakan`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
-
---
--- AUTO_INCREMENT for table `pajak`
---
-ALTER TABLE `pajak`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `kerusakan`
 --
 ALTER TABLE `kerusakan`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT for table `pajak`
+--
+ALTER TABLE `pajak`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `reserv`
@@ -547,16 +555,16 @@ ALTER TABLE `kelayakan`
   ADD CONSTRAINT `plat_nomer` FOREIGN KEY (`plat_nomer`) REFERENCES `mobil` (`plat_nomer`);
 
 --
--- Constraints for table `pajak`
---
-ALTER TABLE `pajak`
-  ADD CONSTRAINT `pajak_ibfk_1` FOREIGN KEY (`plat_nomer`) REFERENCES `mobil` (`plat_nomer`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `kerusakan`
 --
 ALTER TABLE `kerusakan`
   ADD CONSTRAINT `fk_plat_nomer` FOREIGN KEY (`plat_nomer`) REFERENCES `mobil` (`plat_nomer`);
+
+--
+-- Constraints for table `pajak`
+--
+ALTER TABLE `pajak`
+  ADD CONSTRAINT `pajak_ibfk_1` FOREIGN KEY (`plat_nomer`) REFERENCES `mobil` (`plat_nomer`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `reserv`
