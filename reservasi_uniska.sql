@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 13, 2024 at 05:50 PM
+-- Generation Time: Aug 20, 2024 at 08:40 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.12
 
@@ -30,12 +30,20 @@ SET time_zone = "+00:00";
 CREATE TABLE `asuransi` (
   `id` int(20) NOT NULL,
   `plat_nomer` varchar(20) NOT NULL,
-  `Tipe_Mobil` int(11) NOT NULL,
-  `Tanggal_Awal` date NOT NULL,
-  `Tanggal_Akhir` date NOT NULL,
-  `Jenis` int(11) NOT NULL,
+  `tgl_awal` date NOT NULL,
+  `tgl_akhir` date NOT NULL,
+  `Jenis` varchar(11) NOT NULL,
   `statuspem` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `asuransi`
+--
+
+INSERT INTO `asuransi` (`id`, `plat_nomer`, `tgl_awal`, `tgl_akhir`, `Jenis`, `statuspem`) VALUES
+(3, 'AE 1123 AP', '2222-02-22', '2222-02-22', '', '3'),
+(5, 'AA 8723 PS', '2024-08-20', '2024-08-23', 'Luar', 'lunas'),
+(6, 'B 1123 APS', '2024-07-01', '2024-07-05', 'Luar', 'pending');
 
 -- --------------------------------------------------------
 
@@ -214,7 +222,7 @@ CREATE TABLE `pajak` (
 --
 
 INSERT INTO `pajak` (`id`, `plat_nomer`, `statuspemba`) VALUES
-(5, 'AA 8723 PS', 'tahunan'),
+(5, 'AA 8723 PS', 'Tahunan'),
 (6, 'D 2314 APS', '5 tahun');
 
 -- --------------------------------------------------------
@@ -340,10 +348,16 @@ INSERT INTO `role` (`id_role`, `role`) VALUES
 CREATE TABLE `service` (
   `id` int(20) NOT NULL,
   `plat_nomer` varchar(20) NOT NULL,
-  `Tipemobil` int(11) NOT NULL,
-  `merek` int(11) NOT NULL,
-  `jenis service` int(11) NOT NULL
+  `jenis_service` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `service`
+--
+
+INSERT INTO `service` (`id`, `plat_nomer`, `jenis_service`) VALUES
+(2, 'B 1123 APS', 'Keseluruhan'),
+(3, 'BH 1092 PS', 'Mesin');
 
 -- --------------------------------------------------------
 
@@ -500,7 +514,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `asuransi`
 --
 ALTER TABLE `asuransi`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `kelayakan`
@@ -530,7 +544,7 @@ ALTER TABLE `reserv`
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`

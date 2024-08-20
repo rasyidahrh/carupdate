@@ -86,13 +86,13 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAsuransiK" aria-expanded="true" aria-controls="collapseAsuransiK">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseService" aria-expanded="true" aria-controls="collapseService">
                         <i class="fas fa-fw fa-key"></i>
-                        <span>Asuransi Kendaraan</span>
+                        <span>Service</span>
                     </a>
-                    <div id="collapseAsuransiK" class="collapse" aria-labelledby="headingTiga" data-parent="#accordionSidebar">
+                    <div id="collapseService" class="collapse" aria-labelledby="headingTiga" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="kelayakan.php">List Package Asuransi</a>
+                            <a class="collapse-item" href="' . BASE_URL . '/view/service/service.php">service</a>
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                             </div>
                         </div>
@@ -163,9 +163,11 @@
                         data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Laporan filter</h6>
+                            <a class="collapse-item" href="' . BASE_URL . '/view/laporan/laporanAsuransi.php">Laporan Asuransi</a>
                             <a class="collapse-item" href="' . BASE_URL . '/view/laporan/laporanreserv.php">Laporan Reservasi</a>
                             <a class="collapse-item" href="' . BASE_URL . '/view/laporan/laporanMobil.php">Laporan Mobil</a>
                             <a class="collapse-item" href="' . BASE_URL . '/view/laporan/laporanperbaikan.php">Laporan Perbaikan</a>
+                            <a class="collapse-item" href="' . BASE_URL . '/view/laporan/laporanPajak.php">Laporan Pajak</a>
                             <a class="collapse-item" href="' . BASE_URL . '/view/laporan/laporanKelayakan.php">Laporan Kelayakan</a>
                             <a class="collapse-item" href="' . BASE_URL . '/view/laporan/laporanPegawai.php">Laporan Pegawai</a>
                 </li>';
