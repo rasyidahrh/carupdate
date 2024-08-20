@@ -12,7 +12,7 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>DATA MOBIL</title>
+    <title>DATA service</title>
 
     <?php include "../../template/header.php"; ?>
 </head>
@@ -27,13 +27,13 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body">
-                    <a href="<?= BASE_URL ?>/view/pajak/pajak.php"><button class="btn btn-danger">Kembali</button></a>
+                    <a href="<?= BASE_URL ?>/view/asuransi/service.php"><button class="btn btn-danger">Kembali</button></a>
                     <hr>
-                    <form action="<?= BASE_URL ?>/process/add/process_tambahpajak.php" method="post">
+                    <form action="<?= BASE_URL ?>/process/add/process_tambahservice.php" method="post">
                         <div class="mb-3">
                             <label for="" class="form-label">Plat Nomer</label>
-                            <select name="plat_nomer" class="form-control" require>
-                                <option value="">--pilih--</option>
+                            <select name="plat_nomer" id="plat nomer" class="form-control" require>
+                                <option value="">--Pilih--</option>
                                 <?phP
                                 $sql_mobil = mysqli_query($koneksi, "SELECT * FROM mobil") or die(mysqli_error($koneksi));
                                 while ($data_mobil = mysqli_fetch_array($sql_mobil)) {
@@ -44,11 +44,11 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="" class="form-label">Status pembayaran</label>
-                            <select name="statuspemba" class="form-control" required>
+                            <label for="" class="form-label">Jenis Service</label>
+                            <select name="jenis_service" class="form-control" required>
                                 <option value="">--pilih--</option>
-                                <option value="Tahunan">Tahunan</option>
-                                <option value="5 tahun">5 Tahun</option>
+                                <option value="Mesin">Mesin</option>
+                                <option value="Keseluruhan">Keseluruhan</option>
                             </select>
                         </div>
                 </div>
@@ -56,10 +56,7 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
             <input type="submit" value="Simpan" class="btn btn-success">
             </form>
         </div>
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-        <script src="js/sb-admin-2.min.js"></script>
+        <?php include "../../template/footer.php"; ?>
     </div>
     </div>
 

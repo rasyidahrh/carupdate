@@ -30,13 +30,13 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body">
-                    <h1 class="h3 mb-4 text-gray-800">Data service</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Data asuransi</h1>
                     <hr>
                     <?php
                     if ($_SESSION['fk_role'] == 'admin') {
                         echo '<td>
                     <div class="table-container">
-                        <a href="addservice.php"><button class="btn btn-success mb-3">Tambah service</button></a>
+                        <a href="addasuransi.php"><button class="btn btn-success mb-3">Tambah asuransi</button></a>
                         </td>';
                     } else {
                         echo '';
@@ -57,20 +57,23 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                                 <th>Merek</th>
                                 <th>tipe</th>
                                 <th>Warna</th>
-                                <th>Jenis service</th>
+                                <th>Tgl Awal</th>
+                                <th>Tgl Akhir</th>
+                                <th>Jenis Asuransi</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             $no = 1;
-                            $data = mysqli_query($koneksi, "select * from service join mobil on mobil.plat_nomer=service.plat_nomer");
+                            $data = mysqli_query($koneksi, "select * from asuransi join mobil on mobil.plat_nomer=asuransi.plat_nomer");
                             while ($d = mysqli_fetch_array($data)) {
                             ?>
                                 <tr>
                                     <?php
                                     if ($_SESSION['fk_role'] == 'admin') {
                                         echo ' <td>
-                            <a href="updateservice.php?id=' . $d["id"] . '"><button class="btn btn-success"><i class="fas fa-fw fa-pen"></i></button></a>
+                            <a href="updateasuransi.php?id=' . $d["plat_nomer"] . '"><button class="btn btn-success"><i class="fas fa-fw fa-pen"></i></button></a>
                             <a data-id="' . $d["id"] . '" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger"><i class="fas fa-fw fa-trash"></i></a>
                         </td>';
                                     } else {
@@ -82,7 +85,10 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                                     <td><?= $d['merek']; ?></td>
                                     <td><?= $d['tipe_mobil']; ?></td>
                                     <td><?= $d['warna']; ?></td>
-                                    <td><?= $d['jenis_service']; ?></td>
+                                    <td><?= $d['tgl_awal']; ?></td>
+                                    <td><?= $d['tgl_akhir']; ?></td>
+                                    <td><?= $d['Jenis']; ?></td>
+                                    <td><?= $d['statuspem']; ?></td>
 
                                 </tr>
                             <?php
@@ -123,7 +129,7 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                 var button = $(event.relatedTarget); // Tombol yang memicu modal
                 var id = button.data('id'); // Ambil ID pegawai dari atribut data-id
                 var modal = $(this);
-                modal.find('.modal-body').html('Apakah Anda yakin ingin menghapus pegawai dengan ID service ' + id + '?');
+                modal.find('.modal-body').html('Apakah Anda yakin ingin menghapus pegawai dengan ID asuransi ' + id + '?');
                 // Atur tindakan penghapusan ke URL yang benar
                 modal.find('#hapus').attr('data-id', id);
             });
@@ -131,7 +137,7 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
             $('#hapus').click(function() {
                 var id = $(this).data('id');
                 // Lakukan tindakan penghapusan sesuai dengan URL yang benar
-                window.location.href = '<?= BASE_URL ?>/process/delete/process_hapusservice.php?id=' + id;
+                window.location.href = '<?= BASE_URL ?>/process/delete/process_hapusasuransi.php?id=' + id;
             });
         });
     </script>
