@@ -27,17 +27,11 @@ include '../../function/helper.php';
         $data = mysqli_fetch_array(mysqli_query($koneksi, "
         select 
             id_reserv,
-            Nama_Peminjam,
             Nik,
-            devisi.devisi as devisi,
-            Jabatan,
             Tujuan,
             Pilih_Reserv,
             reserv.Plat_nomer as fk_mobil,
             mobil.plat_nomer as plat_nomer,
-            mobil.merek as Merek,
-            mobil.tipe_Mobil as Tipe_Mobil,
-            reserv.Warna as Warna,
             WaktuOut,
             WaktuIn,
             KmOut,
@@ -49,8 +43,6 @@ include '../../function/helper.php';
             reserv 
         join 
             mobil on mobil.plat_nomer=reserv.Plat_nomer 
-        join 
-            devisi on reserv.Devisi=devisi.id_devisi
         where id_reserv=$id_reserv"));
         if ($_SESSION['fk_role'] == 'user') {
             $_SESSION['disabled'] = "disabled";
@@ -87,31 +79,10 @@ include '../../function/helper.php';
                             </div>';
                     }
                     ?>
-                    <div class="mb-3">
-                        <label for="" class="form-label">Nama Peminjam</label>
-                        <!-- <input type="hidden" class="form-control" id="" aria-describedby=""  name="thisLink"> -->
-                        <input type="hidden" class="form-control" id="" aria-describedby="" name="id_reserv" value="<?= $data['id_reserv']; ?>" required>
-                        <input type="text" class="form-control" <?= $_SESSION['disabled'] ?> id="" aria-describedby="" name="Nama_Peminjam" value="<?= $data['Nama_Peminjam']; ?>" required>
-                    </div>
+                    <input type="hidden" class="form-control" id="" aria-describedby="" name="id_reserv" value="<?= $data['id_reserv']; ?>" required>
                     <div class="mb-3">
                         <label for="" class="form-label">Nik</label>
                         <input type="text" class="form-control" disabled id="" aria-describedby="" name="Nik" value="<?= $data['Nik']; ?>" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label">Unit Kerja</label>
-                        <!-- <input type="text" class="form-control" <?= $_SESSION['disabled'] ?> id="" aria-describedby="" name="Devisi" value="<?= $data['Devisi']; ?>" required> -->
-                        <select name="Devisi" class="form-control <?= $_SESSION['disabled'] ?>" required>
-                            <option value="<?= $data['devisi']; ?>" selected="selected"><?= $data['devisi']; ?></option>
-                            <?php
-                            $sql_devisi = mysqli_query($koneksi, "SELECT * FROM devisi") or die(mysqli_error($koneksi));
-                            while ($data_devisi = mysqli_fetch_array($sql_devisi)) {
-                                if ($data['devisi'] != $data_devisi['devisi']) {
-                                    echo '<option value="' . $data_devisi['id_devisi'] . '">' . $data_devisi['devisi'] . '</option>';
-                                }
-                            }
-                            ?>
-
-                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Tujuan</label>
@@ -143,53 +114,6 @@ include '../../function/helper.php';
                             while ($data_mobil = mysqli_fetch_array($sql_mobil)) {
                                 if ($data['plat_nomer'] != $data_mobil['plat_nomer']) {
                                     echo '<option value="' . $data_mobil['plat_nomer'] . '">' . $data_mobil['plat_nomer'] . '</option>';
-                                }
-                            }
-                            ?>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label">Merek</label>
-                        <!-- <input type="hidden" class="form-control" id="Merek" aria-describedby="" value="<? //= $data['Merek']; 
-                                                                                                                ?>" required> -->
-                        <br>
-                        <select name="Merek" class="form-control <?= $_SESSION['disabled'] ?>" required>
-                            <option value="<?= $data['plat_nomer']; ?>"><?= $data['Merek']; ?></option>
-                            <?php
-                            $sql_mobil = mysqli_query($koneksi, "SELECT DISTINCT merek FROM mobil WHERE jumlah!=0") or die(mysqli_error($koneksi));
-                            while ($data_mobil = mysqli_fetch_array($sql_mobil)) {
-                                if ($data['merek'] != $data_mobil['merek']) {
-                                    echo '<option value="' . $data_mobil['merek'] . '">' . $data_mobil['merek'] . '</option>';
-                                }
-                            }
-                            ?>
-                        </select>
-
-                    </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label">Tipe</label>
-                        <select name="Tipe_Mobil" class="form-control <?= $_SESSION['disabled'] ?>" required>
-                            <option value="<?= $data['Tipe_Mobil']; ?>"><?= $data['Tipe_Mobil']; ?></option>
-                            <?php
-                            $sql_mobil = mysqli_query($koneksi, "SELECT DISTINCT tipe_mobil FROM mobil WHERE jumlah!=0") or die(mysqli_error($koneksi));
-                            while ($data_mobil = mysqli_fetch_array($sql_mobil)) {
-                                if ($data['Tipe_Mobil'] != $data_mobil['tipe_mobil']) {
-                                    echo '<option value="' . $data_mobil['tipe_mobil'] . '">' . $data_mobil['tipe_mobil'] . '</option>';
-                                }
-                            }
-                            ?>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label">Warna</label>
-                        <!-- <input type="text" class="form-control" <?= $_SESSION['disabled'] ?> id="" aria-describedby="" name="Warna" value="<?= $data['Warna']; ?>" required> -->
-                        <select name="Warna" class="form-control <?= $_SESSION['disabled'] ?>" required>
-                            <option value="<?= $data['Warna']; ?>"><?= $data['Warna']; ?></option>
-                            <?php
-                            $sql_mobil = mysqli_query($koneksi, "SELECT DISTINCT warna FROM mobil WHERE jumlah!=0") or die(mysqli_error($koneksi));
-                            while ($data_mobil = mysqli_fetch_array($sql_mobil)) {
-                                if ($data['Warna'] != $data_mobil['warna']) {
-                                    echo '<option value="' . $data_mobil['warna'] . '">' . $data_mobil['warna'] . '</option>';
                                 }
                             }
                             ?>

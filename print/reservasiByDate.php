@@ -110,16 +110,11 @@ $pdf->Ln();
 if ($_POST['reservasi'] == 'semua') {
     $sql = 'select 
     id_reserv,
-    Nama_Peminjam,
+    pegawai.Nama as Nama_Peminjam,
     pegawai.id_nik as Nik,
-    Devisi,
-    pegawai.Jabatan as Jabatan,
     Tujuan,
     Pilih_Reserv,
     mobil.plat_nomer,
-    mobil.Merek,
-    mobil.Tipe_Mobil,
-    mobil.Warna,
     DATE_FORMAT(WaktuOut,"%d-%m-%y %H:%i") as WaktuOut,
     DATE_FORMAT(WaktuIn,"%d-%m-%y %H:%i") as WaktuIn,
     KmOut,
@@ -129,22 +124,17 @@ if ($_POST['reservasi'] == 'semua') {
     status
     from reserv 
     join pegawai on id_nik=reserv.Nik 
-    join mobil on reserv.Plat_nomer=mobil.id 
+    join mobil on reserv.Plat_nomer=mobil.Plat_nomer 
     where date(WaktuOut) >= "' . $_POST["tgl1"] . '"
     and date(WaktuOut) <= "' . $_POST["tgl2"] . '"';
 } else {
     $sql = 'select 
     id_reserv,
-    Nama_Peminjam,
+    pegawai.Nama as Nama_Peminjam,
     pegawai.id_nik as Nik,
-    Devisi,
-    pegawai.Jabatan as Jabatan,
     Tujuan,
     Pilih_Reserv,
     mobil.plat_nomer,
-    mobil.Merek,
-    mobil.Tipe_Mobil,
-    mobil.Warna,
     DATE_FORMAT(WaktuOut,"%d-%m-%y %H:%i") as WaktuOut,
     DATE_FORMAT(WaktuIn,"%d-%m-%y %H:%i") as WaktuIn,
     KmOut,
@@ -154,7 +144,7 @@ if ($_POST['reservasi'] == 'semua') {
     status
     from reserv 
     join pegawai on id_nik=reserv.Nik 
-    join mobil on reserv.Plat_nomer=mobil.id 
+    join mobil on reserv.Plat_nomer=mobil.Plat_nomer 
     where date(WaktuOut) >= "' . $_POST["tgl1"] . '"
     and date(WaktuOut) <= "' . $_POST["tgl2"] . '"
     and Pilih_Reserv="' . $_POST["reservasi"] . '"';
@@ -167,16 +157,10 @@ if ($result->num_rows > 0) {
     $no = 1;
     while ($row = $result->fetch_assoc()) {
         $pdf->Cell(10, 10, $no++, 1);
-        $pdf->Cell(35, 10, $row['Nama_Peminjam'], 1);
         $pdf->Cell(15, 10, $row['Nik'], 1);
-        $pdf->Cell(60, 10, $row['Devisi'], 1);
-        $pdf->Cell(15, 10, $row['Jabatan'], 1);
         $pdf->Cell(45, 10, $row['Tujuan'], 1);
         $pdf->Cell(20, 10, $row['Pilih_Reserv'], 1);
         $pdf->Cell(25, 10, $row['plat_nomer'], 1);
-        $pdf->Cell(30, 10, $row['Merek'], 1);
-        $pdf->Cell(20, 10, $row['Tipe_Mobil'], 1);
-        $pdf->Cell(20, 10, $row['Warna'], 1);
         $pdf->Cell(30, 10, $row['WaktuOut'], 1);
         $pdf->Cell(30, 10, $row['WaktuIn'], 1);
         $pdf->Cell(15, 10, $row['KmOut'], 1);

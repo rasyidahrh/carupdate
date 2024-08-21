@@ -6,15 +6,9 @@ require_once('../../function/koneksi.php');
 $id_reserv = $_POST['id_reserv'];
 // proses update jika role admin
 if ($_SESSION['fk_role'] == 'admin') {
-    $nama = $_POST['Nama_Peminjam'];
-    // $nik = $_POST['Nik'];
-    $uk = $_POST['Devisi'];
     $tj = $_POST['Tujuan'];
     $reserv_pilih = $_POST['Pilih_Reserv'];
-    $id_mobil = $_POST['Plat_nomer'];
-    $merek = $_POST['Merek'];
-    $tipe = $_POST['Tipe_Mobil'];
-    $warna = $_POST['Warna'];
+    $platnomer = $_POST['Plat_nomer'];
     $waktuOut = $_POST['WaktuOut'];
     $kmOut = $_POST['KmOut'];
     $waktuIn = $_POST['WaktuIn'];
@@ -77,11 +71,11 @@ if ($_SESSION['fk_role'] == 'admin') {
                 }
                 move_uploaded_file($file_tmp, $dir . $namaFile);
                 move_uploaded_file($file_tmp2, $dir . $namaFile2);
-                $query = mysqli_query($koneksi, "update reserv set Nama_Peminjam='$nama',Devisi='$uk',Tujuan='$tj',Pilih_Reserv='$reserv_pilih',Plat_nomer='$id_mobil',Merek='$merek',Tipe_Mobil='$tipe',Warna='$warna',WaktuOut='$waktuOut',WaktuIN='$waktuIn',KmOut='$kmOut',fotoout='$namaFile2',KmIn='$kmIn',fotoin='$namaFile',status='$status' WHERE id_reserv='$id_reserv'");
+                $query = mysqli_query($koneksi, "update reserv set Tujuan='$tj',Pilih_Reserv='$reserv_pilih',Plat_nomer='$platnomer',WaktuOut='$waktuOut',WaktuIN='$waktuIn',KmOut='$kmOut',fotoout='$namaFile2',KmIn='$kmIn',fotoin='$namaFile',status='$status' WHERE id_reserv='$id_reserv'");
                 if ($query) {
                     // echo 'FILE BERHASIL DI UPLOAD';
                     //tambah mobil ketika data telah reservasi lengkap
-                    $query2 = mysqli_query($koneksi, "update mobil set jumlah=1 where plat_nomer=$id_mobil");
+                    $query2 = mysqli_query($koneksi, "update mobil set jumlah=1 where plat_nomer='$platnomer'");
                     $_SESSION['status'] = 'FILE BERHASIL DI UPLOAD';
                 } else {
                     $_SESSION['status'] = 'GAGAL MENGUPLOAD GAMBAR';
@@ -133,7 +127,7 @@ if ($_SESSION['fk_role'] == 'admin') {
                     echo "ehe";
                 }
                 move_uploaded_file($file_tmp2, $dir . $namaFile2);
-                $query = mysqli_query($koneksi, "update reserv set Nama_Peminjam='$nama',Devisi='$uk',Tujuan='$tj',Pilih_Reserv='$reserv_pilih',Plat_nomer='$id_mobil',Merek='$merek',Tipe_Mobil='$tipe',Warna='$warna',WaktuOut='$waktuOut',WaktuIN='$waktuIn',KmOut='$kmOut',fotoout='$namaFile2',KmIn='$kmIn',status='$status' WHERE id_reserv='$id_reserv'");
+                $query = mysqli_query($koneksi, "update reserv set Tujuan='$tj',Pilih_Reserv='$reserv_pilih',Plat_nomer='$platnomer',,WaktuOut='$waktuOut',WaktuIN='$waktuIn',KmOut='$kmOut',fotoout='$namaFile2',KmIn='$kmIn',status='$status' WHERE id_reserv='$id_reserv'");
                 if ($query) {
                     // echo 'FILE BERHASIL DI UPLOAD';
                     //tambah mobil ketika data telah reservasi lengkap
@@ -190,11 +184,11 @@ if ($_SESSION['fk_role'] == 'admin') {
                     echo "ehe";
                 }
                 move_uploaded_file($file_tmp, $dir . $namaFile);
-                $query = mysqli_query($koneksi, "update reserv set Nama_Peminjam='$nama',Devisi='$uk',Tujuan='$tj',Pilih_Reserv='$reserv_pilih',Plat_nomer='$id_mobil',Merek='$merek',Tipe_Mobil='$tipe',Warna='$warna',WaktuOut='$waktuOut',WaktuIN='$waktuIn',KmOut='$kmOut',KmIn='$kmIn',fotoin='$namaFile',status='$status' WHERE id_reserv='$id_reserv'");
+                $query = mysqli_query($koneksi, "update reserv set Tujuan='$tj',Pilih_Reserv='$reserv_pilih',Plat_nomer='$platnomer',WaktuOut='$waktuOut',WaktuIN='$waktuIn',KmOut='$kmOut',KmIn='$kmIn',fotoin='$namaFile',status='$status' WHERE id_reserv='$id_reserv'");
                 if ($query) {
                     // echo 'FILE BERHASIL DI UPLOAD';
                     //tambah mobil ketika data telah reservasi lengkap
-                    $query2 = mysqli_query($koneksi, "update mobil set jumlah=1 where plat_nomer=$id_mobil");
+                    $query2 = mysqli_query($koneksi, "update mobil set jumlah=1 where plat_nomer='$platnomer'");
                     $_SESSION['status'] = 'FILE BERHASIL DI UPLOAD';
                 } else {
                     $_SESSION['status'] = 'GAGAL MENGUPLOAD GAMBAR';
@@ -209,8 +203,8 @@ if ($_SESSION['fk_role'] == 'admin') {
             // echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
         }
     } else {
-        $query = mysqli_query($koneksi, "update reserv set Nama_Peminjam='$nama',Devisi='$uk',Tujuan='$tj',Pilih_Reserv='$reserv_pilih',plat_nomer='$id_mobil',Merek='$merek',Tipe_Mobil='$tipe',Warna='$warna',WaktuOut='$waktuOut',WaktuIn='$waktuIn',KmOut='$kmOut',KmIn='$kmIn',status='$status' WHERE id_reserv='$id_reserv'");
-        $_SESSION['status'] = 'update berhasil tanpa upload foto';
+        $query = mysqli_query($koneksi, "update reserv set Tujuan='$tj',Pilih_Reserv='$reserv_pilih',plat_nomer='$platnomer',WaktuOut='$waktuOut',WaktuIn='$waktuIn',KmOut='$kmOut',KmIn='$kmIn',status='$status' WHERE id_reserv='$id_reserv'");
+        $_SESSION['status'] = 'update berhasil tanpa upload foto A';
         // print_r($_POST);
     }
     header("location:" . BASE_URL . "/view/reservasi/reservasi.php");
@@ -259,10 +253,10 @@ if ($_SESSION['fk_role'] == 'admin') {
                 }
 
                 move_uploaded_file($file_tmp, $dir . $namaFile);
-                $query = mysqli_query($koneksi, "update reserv set WaktuIN='$waktuIn',KmIn='$kmIn',fotoin='$namaFile' WHERE id_reserv='$id_reserv'");
+                $query = mysqli_query($koneksi, "update reserv set WaktuIn='$waktuIn',KmIn='$kmIn',fotoin='$namaFile' WHERE id_reserv='$id_reserv'");
                 if ($query) {
                     //tambah mobil ketika data telah reservasi lengkap
-                    $query2 = mysqli_query($koneksi, "update mobil set jumlah=1 where plat_nomer=$id_mobil");
+                    $query2 = mysqli_query($koneksi, "update mobil set jumlah=1 where plat_nomer='$platnomer'");
                     // echo 'FILE BERHASIL DI UPLOAD';
                     $_SESSION['status'] = 'FILE BERHASIL DI UPLOAD';
                 } else {
