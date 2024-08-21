@@ -49,7 +49,7 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
             <div class="card">
                 <div class="card-body">
                     <hr>
-                    <a href="<?php BASE_URL ?>perbaikan.php"><button class="btn btn-danger">Kembali</button></a>
+                    <a href="<?= BASE_URL ?>/view/perbaikan/perbaikan.php"><button class="btn btn-danger">Kembali</button></a>
                     <hr>
                     <form action="<?= BASE_URL ?>/process/add/process_tambahperbaikan.php" method="post">
                         <div class="mb-3">
@@ -94,7 +94,7 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
 
                         <div class="mb-3">
                             <label for="" class="form-label">Plat Nomer</label>
-                            <select name="id_mobil" id="plat nomer" class="form-control" require>
+                            <select name="plat_nomer" id="plat nomer" class="form-control" require>
                                 <option value="">--pilih--</option>
                                 <?phP
                                 $sql_mobil = mysqli_query($koneksi, "SELECT * FROM mobil") or die(mysqli_error($koneksi));

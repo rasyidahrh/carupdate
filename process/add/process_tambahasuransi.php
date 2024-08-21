@@ -11,5 +11,6 @@ $statuspem = $_POST['statuspem'];
 
 $query = mysqli_query($koneksi, "insert into asuransi values('','$plat_nomer','$tgl_awal','$tgl_akhir','$Jenis','$statuspem')
     ");
+    $_SESSION['status'] = 'Data Berhasil ditambahkan';
 
 header("location:" . BASE_URL . "/view/asuransi/asuransi.php");

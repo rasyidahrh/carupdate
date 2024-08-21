@@ -57,6 +57,14 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                             <input type="text" class="form-control" id="" aria-describedby="" name="BBM" required>
                         </div>
                         <div class="mb-3">
+                            <label for="" class="form-label">Nomer Mesin</label>
+                            <input type="text" class="form-control" id="" aria-describedby="" name="noMesin" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Nomer Rangka</label>
+                            <input type="text" class="form-control" id="" aria-describedby="" name="noRangka" required>
+                        </div>
+                        <div class="mb-3">
                             <label for="" class="form-label">Foto</label>
                             <input type="file" class="form-control" id="" aria-describedby="" name="foto" required>
                         </div>

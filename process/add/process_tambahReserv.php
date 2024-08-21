@@ -99,5 +99,5 @@ if (in_array($ekstensi, $ekstensi_diperbolehkan) === true) {
     // echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
 }
 
-
+$_SESSION['status'] = 'Data Berhasil ditambahkan';
 header("location:" . BASE_URL . "/view/reservasi/reservasi.php");

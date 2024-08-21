@@ -12,5 +12,6 @@ $status = $_POST['status'];
 
 
 $query = mysqli_query($koneksi, "insert into kelayakan values('','$platnomer','$perbaikan','$deskripsi','$status')");
+$_SESSION['status'] = 'Data Berhasil ditambahkan';
 
 header("location:" . BASE_URL . "/view/kelayakan/kelayakan.php");

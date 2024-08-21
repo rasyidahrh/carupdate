@@ -10,9 +10,9 @@ class PDF extends FPDF
     function Header()
     {
         // Jarak antara logo dan teks
-        $this->Ln(10); // Sesuaikan jarak yang diinginkan
+        $this->Ln(8); // Sesuaikan jarak yang diinginkan
         // Kop surat
-        $this->SetFont('Times', 'B', 15);
+        $this->SetFont('Arial', 'B', 15);
         $this->Cell(0, 7, 'PT. ANGKASA PURA SUPPORT', 0, 1, 'C');
         $this->Cell(0, 7, 'CABANG  BANJARMASIN', 0, 1, 'C');
 
@@ -41,43 +41,40 @@ class PDF extends FPDF
 
 
         $this->SetFont('Arial', 'B', 12);
-        $this->Cell(0, 10, 'DATA PAJAK MOBIL OPERASIONAL', 0, 1, 'C');
+        $this->Cell(0, 10, 'DATA SERVICE MOBIL OPERASIONAL', 0, 1, 'C');
 
         // Tanggal
         $this->SetFont('Arial', '', 10);
         $this->Cell(0, 5, 'Tanggal        : ' . date('d F Y'), 0, 1, 'L');
         $this->Cell(0, 5, 'Dicetak oleh : ' . $_SESSION['nama'], 0, 1, 'L');
-        $this->Cell(0, 5, '', 0, 1, 'L');
-        $this->Cell(0, 10, 'Berikut Terlampir Data Pajak Mobil Operasional', 0, 1, 'C');
-        $this->Ln(7); // Spasi
+        $this->Cell(0, 5, 'Berikut Terlampir Data Service Mobil Operasional', 0, 1, 'C');
+        $this->Ln(4); // Spasi
 
     }
 }
 
 // Create PDF instance
-$pdf = new PDF('L', 'mm', array(320, 200));
+$pdf = new PDF('L', 'mm', array(320, 320));
 $pdf->AddPage();
 
 // Add content to the PDF
 $pdf->SetFont('Arial', '', 10);
-
+$pdf->SetLeftMargin(28);
 // Add table headers
 $pdf->Cell(10, 10, 'No', 1);
 $pdf->Cell(35, 10, 'Plat Nomer', 1);
 $pdf->Cell(30, 10, 'Merek', 1);
 $pdf->Cell(40, 10, 'Tipe', 1);
 $pdf->Cell(25, 10, 'Warna', 1);
-$pdf->Cell(40, 10, 'No Mesin', 1);
-$pdf->Cell(40, 10, 'No Rangka', 1);
-$pdf->Cell(40, 10, 'Status Pembayaran', 1);
+$pdf->Cell(40, 10, 'Jenis Service', 1);
 $pdf->Ln();
 
 // Fetch data and add rows to the PDF
 // include 'config.php';
-if ($_POST['pajak'] == 'semua') {
-    $sql = 'select * from pajak join mobil on pajak.plat_nomer=mobil.plat_nomer';
+if ($_POST['service'] == 'semua') {
+    $sql = 'select * from service join mobil on service.plat_nomer=mobil.plat_nomer';
 } else {
-    $sql = 'select * from pajak join mobil on pajak.plat_nomer=mobil.plat_nomer where statuspemba="' . $_POST['pajak'] . '"';
+    $sql = 'select * from service join mobil on service.plat_nomer=mobil.plat_nomer where jenis_service="' . $_POST['service'] . '"';
 }
 $result = $koneksi->query($sql);
 
@@ -90,31 +87,32 @@ if ($result->num_rows > 0) {
         $pdf->Cell(30, 10, $row['merek'], 1);
         $pdf->Cell(40, 10, $row['tipe_mobil'], 1);
         $pdf->Cell(25, 10, $row['warna'], 1);
-        $pdf->Cell(40, 10, $row['noMesin'], 1);
-        $pdf->Cell(40, 10, $row['noRangka'], 1);
-        $pdf->Cell(40, 10, $row['statuspemba'], 1);
+        $pdf->Cell(40, 10, $row['jenis_service'], 1);
         $pdf->Ln();
     }
 } else {
     $pdf->Cell(300, 10, 'Tidak ada data.', 1, 0, 'C');
 }
-$pdf->SetY(-50);
+$pdf->SetY(-100);
 $pdf->SetFont('Arial', 'B', 10);
 $pdf->Cell(450, 4, 'Banjarmasin, ' . date('d F Y'), 0, 1, 'C');
 $pdf->Cell(450, 4, 'PT. ANGKASA PURA SUPPORT', 0, 1, 'C'); // Mengubah tinggi menjadi 0
-$pdf->Cell(450, 4, 'BRANCH MANAJER', 0, 1, 'C'); // Mengubah tinggi menjadi 0
-$pdf->Ln(10); // Mengubah spasi 
+// $pdf->Cell(450, 4, 'BRANCH MANAJER', 0, 1, 'C'); // Mengubah tinggi menjadi 0
+$pdf->Ln(12); // Mengubah spasi 
+
+
+$pdf->Image('ttd1.png', 250, 240, 10);
 
 // Nama dan Jabatan
-$pdf->SetY(-30);
-$pdf->SetFont('Arial', 'U', 10);
+$pdf->SetY(-60);
+$pdf->SetFont('Arial', '', 10);
 $pdf->Cell(450, 4, 'ALEXANDER DENALOVA', 0, 1, 'C');
-
+$pdf->Cell(450, 5, '(BRANCH MANAJER)', 0, 1, 'C'); // Mengubah tinggi menjadi 0
 
 
 // Tanggal Timestamp
 $pdf->SetFont('Arial', '', 8);
-$pdf->Cell(450, 4, 'Tanggal: ' . date('d F Y H:i:s'), 0, 1, 'C'); // Menampilkan tanggal timestamp
+// $pdf->Cell(450, 4, 'Tanggal: ' . date('d F Y H:i:s'), 0, 1, 'C'); // Menampilkan tanggal timestamp
 
 // Output the PDF
 $pdf->Output();

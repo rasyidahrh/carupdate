@@ -54,6 +54,14 @@ include '../../function/helper.php';
                     <input type="text" class="form-control" id="" aria-describedby="" name="BBM" value="<?= $data['BBM']; ?>" required>
                 </div>
                 <div class="mb-3">
+                    <label for="" class="form-label">Nomer Mesin</label>
+                    <input type="text" class="form-control" id="" aria-describedby="" name="noMesin" value="<?= $data['noMesin']; ?>" required>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Nomer Rangka</label>
+                    <input type="text" class="form-control" id="" aria-describedby="" name="noRangka" value="<?= $data['noRangka']; ?>" required>
+                </div>
+                <div class="mb-3">
                     <label for="" class="form-label">foto</label>
                     <input type="file" class="form-control" id="" aria-describedby="" name="foto">
                 </div>

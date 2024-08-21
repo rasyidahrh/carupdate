@@ -59,4 +59,6 @@ if (in_array($ekstensi, $ekstensi_diperbolehkan) === true) {
     $_SESSION['status'] = 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
 }
 print_r($_SESSION);
+
+$_SESSION['status'] = 'Data Berhasil ditambahkan';
 header("location:" . BASE_URL . "/view/mobil/mobil.php");

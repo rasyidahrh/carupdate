@@ -21,5 +21,5 @@ if ($cekNikPegawai == 1 && $cekNikUser == 0) {
     $query2 = mysqli_query($koneksi, "insert into user values('','$id_nik','$password','$role')");
 }
 
-
+$_SESSION['status'] = 'Data Berhasil ditambahkan';
 header("location:" . BASE_URL . "/view/pegawai/pegawai.php");

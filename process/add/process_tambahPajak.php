@@ -9,4 +9,6 @@ $plat_nomer = $_POST['plat_nomer'];
 $statuspemba = $_POST['statuspemba'];
 // print_r($_POST);
 mysqli_query($koneksi, "insert into pajak values('','$plat_nomer','$statuspemba')");
+
+$_SESSION['status'] = 'Data Berhasil ditambahkan';
 header("location:" . BASE_URL . "/view/pajak/pajak.php");
