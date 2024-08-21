@@ -31,20 +31,6 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                     <hr>
                     <form action="<?= BASE_URL ?>/process/add/process_tambahreserv.php" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
-                            <label for="" class="form-label">Nama Peminjam</label>
-                            <input type="hidden" class="form-control" id="" aria-describedby="" name="thisLink">
-                            <input type="text" class="form-control" id="" aria-describedby="" name="Nama_Peminjam" required>
-                            <!-- <select name="nama" id="nama" class="form-control" require>
-                                <option value="">--Pilih--</option>
-                                <?php
-                                $sql_pegawai = mysqli_query($koneksi, "SELECT * FROM pegawai") or die(mysqli_error($koneksi));
-                                while ($data_pegawai = mysqli_fetch_array($sql_pegawai)) {
-                                    echo '<option value="' . $data_pegawai['id_nik'] . '">' . $data_pegawai['Nama'] . '</option>';
-                                }
-                                ?>
-                            </select> -->
-                        </div>
-                        <div class="mb-3">
                             <label for="" class="form-label">Nik</label>
                             <select name="id_nik" id="id_nik" class="form-control" require>
                                 <option value="">--Pilih--</option>
@@ -55,28 +41,6 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                                     echo '<option value="' . $data_pegawai['id_nik'] . '">' . $data_pegawai['id_nik'] . '</option>';
                                 }
                                 ?>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Devisi</label>
-                            <select name="devisi" id="devisi" class="form-control" require>
-                                <option value="">--Pilih--</option>
-                                <?php
-                                include 'function/koneksi.php';
-                                $sql_devisi = mysqli_query($koneksi, "SELECT * FROM devisi") or die(mysqli_error($koneksi));
-                                while ($data_devisi = mysqli_fetch_array($sql_devisi)) {
-                                    echo '<option value="' . $data_devisi['id_devisi'] . '">' . $data_devisi['devisi'] . '</option>';
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Jabatan</label>
-                            <select name="Jabatan" id="Jabatan" class="form-control" required>
-                                <option value="">--pilih--</option>
-                                <option value="Staff">Staff</option>
-                                <option value="SPV">SPV</option>
-                                <option value="Admin">Admin</option>
                             </select>
                         </div>
                         <div class="mb-3">
@@ -93,52 +57,12 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Plat Nomer</label>
-                            <select name="id" id="plat nomer" class="form-control" require>
+                            <select name="plat_nomer" id="plat nomer" class="form-control" require>
                                 <option value="">--Pilih--</option>
                                 <?phP
                                 $sql_mobil = mysqli_query($koneksi, "SELECT * FROM mobil WHERE jumlah!=0") or die(mysqli_error($koneksi));
                                 while ($data_mobil = mysqli_fetch_array($sql_mobil)) {
                                     echo '<option value="' . $data_mobil['plat_nomer'] . '">' . $data_mobil['plat_nomer'] . '</option>
-                                     ';
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Merek</label>
-                            <select name="Merek" id="merek" class="form-control" require>
-                                <option value="">--Pilih--</option>
-                                <?php
-                                $sql_mobil = mysqli_query($koneksi, "SELECT * FROM mobil") or die(mysqli_error($koneksi));
-                                while ($data_merek = mysqli_fetch_array($sql_mobil)) {
-                                    echo '<option value="' . $data_merek['merek'] . '">' . $data_merek['merek'] . '</option>';
-                                }
-                                ?>
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="" class="form-label">Tipe</label>
-                            <select name="Tipe" id="tipe" class="form-control" require>
-                                <option value="">--Pilih--</option>
-                                <?phP
-                                $sql_mobil = mysqli_query($koneksi, "SELECT * FROM mobil WHERE jumlah!=0") or die(mysqli_error($koneksi));
-                                while ($data_mobil = mysqli_fetch_array($sql_mobil)) {
-                                    echo '<option value="' . $data_mobil['tipe_mobil'] . '">' . $data_mobil['tipe_mobil'] . '</option>
-                                     ';
-                                }
-                                ?>
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="" class="form-label">Warna</label>
-                            <select name="Warna" id="warna" class="form-control" require>
-                                <option value="">--Pilih--</option>
-                                <?phP
-                                $sql_mobil = mysqli_query($koneksi, "SELECT * FROM mobil WHERE jumlah!=0") or die(mysqli_error($koneksi));
-                                while ($data_mobil = mysqli_fetch_array($sql_mobil)) {
-                                    echo '<option value="' . $data_mobil['warna'] . '">' . $data_mobil['warna'] . '</option>
                                      ';
                                 }
                                 ?>

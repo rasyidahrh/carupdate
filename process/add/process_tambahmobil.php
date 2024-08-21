@@ -10,6 +10,8 @@ $merek = $_POST['merek'];
 $tipe = $_POST['tipe_mobil'];
 $warna = $_POST['warna'];
 $BBM = $_POST['BBM'];
+$noRangka = $_POST['noRangka'];
+$noMesin = $_POST['noMesin'];
 print_r($_POST);
 print_r($_FILES);
 $ekstensi_diperbolehkan    = array('png', 'jpg');
@@ -45,7 +47,7 @@ if (in_array($ekstensi, $ekstensi_diperbolehkan) === true) {
             }
         }
         move_uploaded_file($file_tmp, '../../img/mobil/' . $namaFile);
-        $query = mysqli_query($koneksi, "insert into mobil values('$platnomer','$merek','$tipe','$warna','$BBM','$namaFile',1)");
+        $query = mysqli_query($koneksi, "insert into mobil values('$platnomer','$merek','$tipe','$warna','$BBM','$namaFile','$noRangka','$noMesin',1)");
         if ($query) {
             // echo 'FILE BERHASIL DI UPLOAD';
             $_SESSION['status'] = 'FILE BERHASIL DI UPLOAD';

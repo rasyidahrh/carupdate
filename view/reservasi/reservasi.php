@@ -81,17 +81,16 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                                 $data = mysqli_query($koneksi, "
                                 select 
                                     id_reserv,
-                                    Nama_Peminjam,
+                                    pegawai.Nama as Nama_Peminjam,
                                     pegawai.id_nik as Nik,
-                                    devisi.devisi as devisi,
+                                    pegawai.fk_devisi as devisi,
                                     pegawai.Jabatan as Jabatan,
                                     Tujuan,
                                     Pilih_Reserv,
-                                    reserv.Plat_nomer,
-                                    mobil.plat_nomer as plat_nomer,
+                                    reserv.Plat_nomer as Plat_nomer,
                                     mobil.Merek,
                                     mobil.Tipe_Mobil,
-                                    reserv.Warna as warna,
+                                    mobil.warna as warna,
                                     WaktuOut,
                                     WaktuIn,
                                     KmOut,
@@ -101,8 +100,7 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                                     status
                                     from reserv 
                                     join pegawai on id_nik=reserv.Nik 
-                                    join mobil on reserv.Plat_nomer=mobil.plat_nomer
-                                    join Devisi on Devisi.id_devisi=reserv.Devisi;");
+                                    join mobil on reserv.Plat_nomer=mobil.Plat_nomer;");
                                 while ($d = mysqli_fetch_array($data)) {
 
                                 ?>
