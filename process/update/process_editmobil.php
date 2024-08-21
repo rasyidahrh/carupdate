@@ -9,6 +9,8 @@ $merek = $_POST['merek'];
 $tipe = $_POST['tipe_mobil'];
 $warna = $_POST['warna'];
 $BBM = $_POST['BBM'];
+$noRangka = $_POST['noRangka'];
+$noMesin = $_POST['noMesin'];
 
 $ekstensi_diperbolehkan = array('png', 'jpg');
 if (!empty($_FILES['foto']['name'])) {
@@ -48,7 +50,7 @@ if (!empty($_FILES['foto']['name'])) {
                 unlink("../../img/mobil/" . $foto['foto']);
             }
             move_uploaded_file($file_tmp, $dir . $namaFile);
-            $query = mysqli_query($koneksi, "update mobil set plat_nomer='$platnomer',merek='$merek',tipe_mobil='$tipe',warna='$warna',BBM='$BBM',foto='$namaFile' where plat_nomer='$id'");
+            $query = mysqli_query($koneksi, "update mobil set plat_nomer='$platnomer',merek='$merek',tipe_mobil='$tipe',warna='$warna',BBM='$BBM',foto='$namaFile',noRangka='$noRangka',noMesin='$noMesin' where plat_nomer='$id'");
             if ($query) {
                 // echo 'FILE BERHASIL DI UPLOAD';
                 $_SESSION['status'] = 'FILE BERHASIL DI UPLOAD';
@@ -62,7 +64,7 @@ if (!empty($_FILES['foto']['name'])) {
         $_SESSION['status'] = 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
     }
 } else {
-    $query = mysqli_query($koneksi, "update mobil set plat_nomer='$platnomer',merek='$merek',tipe_mobil='$tipe',warna='$warna',BBM='$BBM' where plat_nomer='$id'");
+    $query = mysqli_query($koneksi, "update mobil set plat_nomer='$platnomer',merek='$merek',tipe_mobil='$tipe',warna='$warna',BBM='$BBM',noRangka='$noRangka',noMesin='$noMesin' where plat_nomer='$id'");
     $_SESSION['status'] = 'update berhasil tanpa upload foto';
 }
 
