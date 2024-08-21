@@ -170,6 +170,7 @@
                             <a class="collapse-item" href="' . BASE_URL . '/view/laporan/laporanPajak.php">Laporan Pajak</a>
                             <a class="collapse-item" href="' . BASE_URL . '/view/laporan/laporanKelayakan.php">Laporan Kelayakan</a>
                             <a class="collapse-item" href="' . BASE_URL . '/view/laporan/laporanPegawai.php">Laporan Pegawai</a>
+                            <a class="collapse-item" href="' . BASE_URL . '/view/laporan/laporanService.php">Laporan Service</a>
                 </li>';
                 } else {
                     echo '';

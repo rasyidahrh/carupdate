@@ -58,6 +58,8 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                                 <th>Tipe Mobil</th>
                                 <th>Warna</th>
                                 <th>Konsumsi BBM Perminggu</th>
+                                <th>Nomer Mesin</th>
+                                <th>Nomer Rangka</th>
                                 <th>Foto</th>
                                 <th>Jumlah</th>
                             </tr>
@@ -85,6 +87,8 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                                     <td><?= $d['tipe_mobil']; ?></td>
                                     <td><?= $d['warna']; ?></td>
                                     <td><?= $d['BBM']; ?></td>
+                                    <td><?= $d['noMesin']; ?></td>
+                                    <td><?= $d['noRangka']; ?></td>
                                     <td><img style="width: 100px;" src="<?= BASE_URL ?>/img/mobil/<?= $d['foto']; ?>" alt=""></td>
                                     <td><?= $d['jumlah']; ?></td>
                                 </tr>
