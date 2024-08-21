@@ -52,7 +52,6 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                     <a href="<?= BASE_URL ?>/view/perbaikan/perbaikan.php"><button class="btn btn-danger">Kembali</button></a>
                     <hr>
                     <form action="<?= BASE_URL ?>/process/add/process_tambahperbaikan.php" method="post">
-
                         <div class="mb-3">
                             <label for="" class="form-label">Nama Pelapor</label>
                             <input type="hidden" class="form-control" id="" aria-describedby="" name="thisLink">
@@ -95,12 +94,12 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
 
                         <div class="mb-3">
                             <label for="" class="form-label">Plat Nomer</label>
-                            <select name="id_mobilim" id="plat nomer" class="form-control" require>
+                            <select name="plat_nomer" id="plat nomer" class="form-control" require>
                                 <option value="">--pilih--</option>
                                 <?phP
                                 $sql_mobil = mysqli_query($koneksi, "SELECT * FROM mobil") or die(mysqli_error($koneksi));
                                 while ($data_mobil = mysqli_fetch_array($sql_mobil)) {
-                                    echo '<option value="' . $data_mobil['id'] . '">' . $data_mobil['plat_nomer'] . '</option>
+                                    echo '<option value="' . $data_mobil['plat_nomer'] . '">' . $data_mobil['plat_nomer'] . '</option>
                                      ';
                                 }
                                 ?>

@@ -17,5 +17,5 @@ $status = $_POST['status'];
 // $plat_nomer = mysqli_fetch_all($data)[0][0];
 // print_r(mysqli_fetch_array($data)[0][0]);
 $query2 = mysqli_query($koneksi, "insert into kerusakan values('','$plat_nomer','$nama_pelapor','$Nik','$Devisi','$tujuan_terakhir','$tgl','$deskripsi','$status')");
-$_SESSION['status'] = 'Data Berhasil ditambahkan';
-header("location:" . BASE_URL . "perbaikan.php");
+
+header("location:" . BASE_URL . "/view/perbaikan/perbaikan.php");
