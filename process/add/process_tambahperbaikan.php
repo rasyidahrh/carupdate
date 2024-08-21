@@ -13,9 +13,9 @@ $tgl = $_POST['tgl'];
 $deskripsi = $_POST['deskripsi'];
 $status = $_POST['status'];
 
-$data = mysqli_query($koneksi, "select plat_nomer from mobil where id='$id_mobil'");
-$plat_nomer = mysqli_fetch_all($data)[0][0];
+// $data = mysqli_query($koneksi, "select plat_nomer from mobil where id='$id_mobil'");
+// $plat_nomer = mysqli_fetch_all($data)[0][0];
 // print_r(mysqli_fetch_array($data)[0][0]);
-$query2 = mysqli_query($koneksi, "insert into perbaikan values('','$id_mobil','$nama_pelapor','$Nik','$Devisi','$plat_nomer','$tujuan_terakhir','$tgl','$deskripsi','$status')");
+$query2 = mysqli_query($koneksi, "insert into kerusakan values('','$id_mobil','$nama_pelapor','$Nik','$Devisi','$tujuan_terakhir','$tgl','$deskripsi','$status')");
 
-header("location:" . BASE_URL . "perbaikan.php");
+header("location:" . BASE_URL . "/view/perbaikan/perbaikan.php");
