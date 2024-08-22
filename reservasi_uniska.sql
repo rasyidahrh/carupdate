@@ -272,16 +272,10 @@ INSERT INTO `pegawai` (`id_nik`, `Nama`, `fk_devisi`, `Jabatan`) VALUES
 
 CREATE TABLE `reserv` (
   `id_reserv` int(20) NOT NULL,
-  `Nama_Peminjam` varchar(50) NOT NULL,
   `Nik` int(50) NOT NULL,
-  `Devisi` varchar(50) NOT NULL,
-  `Jabatan` varchar(45) NOT NULL,
   `Tujuan` varchar(50) NOT NULL,
   `Pilih_Reserv` varchar(50) NOT NULL,
   `Plat_nomer` varchar(20) NOT NULL,
-  `Merek` varchar(50) NOT NULL,
-  `Tipe_Mobil` varchar(50) NOT NULL,
-  `Warna` varchar(50) NOT NULL,
   `WaktuOut` datetime DEFAULT NULL,
   `WaktuIn` datetime DEFAULT NULL,
   `KmOut` varchar(50) NOT NULL,
@@ -295,30 +289,30 @@ CREATE TABLE `reserv` (
 -- Dumping data for table `reserv`
 --
 
-INSERT INTO `reserv` (`id_reserv`, `Nama_Peminjam`, `Nik`, `Devisi`, `Jabatan`, `Tujuan`, `Pilih_Reserv`, `Plat_nomer`, `Merek`, `Tipe_Mobil`, `Warna`, `WaktuOut`, `WaktuIn`, `KmOut`, `fotoout`, `KmIn`, `fotoin`, `status`) VALUES
-(87, 'Himana Sagalad', 1312, 'Human Capital', 'Staff', 'serviced', 'Luar', 'R 0021 APS', 'KIA', 'BOX', 'Metalic Black', '2023-01-10 09:23:00', '2023-01-11 20:22:00', '111d', 'SERTIFIKAT124-out.jpg', '112d', '5bd2e036cd725319e8084cc970f40e0e-in.jpg', 'PENDING'),
-(88, 'Jeevika Nayana', 2119, 'Equipment & Technology ', 'Staff', 'Rapat Luar ', 'Dalam', 'B 9012 APS', '', 'MINI BUS', 'Hitam', '2024-02-19 15:04:00', '2024-02-19 18:08:00', '921', 'e5c634fa056d80b4c7654e4e7ce61e39-out.jpg', '932', 'd93ae24f0bd253125a8c0c78b95e986a-in.jpg', 'ACC'),
-(90, 'Sadewa Sanjaya', 1119, 'HSE & Quality', 'Staff', 'Tinjaun TPS', 'Dalam', 'B 2231 APS', '', 'BOX', 'Hitam', '2024-02-20 10:00:00', '2024-02-20 11:37:00', '331', 'f928083d9efd229607146dd4c0e5fc87-out.jpg', '340', 'e5c634fa056d80b4c7654e4e7ce61e39-in.jpg', 'ACC'),
-(91, 'Fatricia Alliya', 1211, 'Collection', 'Staff', 'Tinjaun Lapangan', 'Dalam', 'DA 1131 AP', '', 'MINI BUS', 'Silver', '2024-02-21 12:00:00', '2024-02-21 01:10:00', '552', 'cf264d27f94fb04133436d448bc65c2f-out.jpg', '557', '5bd2e036cd725319e8084cc970f40e0e (1)-in.jpg', 'ACC'),
-(92, 'Langit Alvanaro', 1501, 'GA, Asset, Inventory Management', 'Staff', 'Pembelian Stock Gudang ', 'Luar', 'DA 2314 AP', '', 'BOX', 'Putih', '2024-02-22 09:00:00', '2024-02-22 11:31:00', '781', 'b9751e3f20bffdb50a332672bffb3050-out.jpg', '790', 'd93ae24f0bd253125a8c0c78b95e986a (2)-in.jpg', 'ACC'),
-(93, 'Danita Alwiya', 1672, 'HSE & Quality', 'Staff', 'Rapat Luar ', 'Dalam', 'DA 1131 AP', '', 'MINI BUS', 'Silver', '2024-02-22 14:05:00', '2024-02-22 13:26:00', '678', '5bd2e036cd725319e8084cc970f40e0e-out.jpg', '688', '886d43c37ff739905f67153caab26e99-in.jpg', 'ACC'),
-(95, 'Mawi Alkatiry', 1672, 'Facility Management', 'Staff', 'Monitoring ', 'Dalam', 'DA 1131 AP', 'DA 1131 AP', 'MINI BUS', 'Silver', '2024-02-22 14:00:00', '2024-02-22 15:00:00', '889', '5bd2e036cd725319e8084cc970f40e0e (1)-out.jpg', '910', '886d43c37ff739905f67153caab26e99 (1)-in.jpg', 'ACC'),
-(96, 'Grasia Altaf ', 2325, 'Deployement', 'Staff', 'Rapat Luar ', 'Dalam', 'B 9012 APS', '', 'MINI BUS', 'Hitam', '2024-02-23 10:09:00', '2024-02-23 12:30:00', '998', 'f928083d9efd229607146dd4c0e5fc87 (1)-out.jpg', '1001', 'cf264d27f94fb04133436d448bc65c2f-in.jpg', 'ACC'),
-(97, 'Raditya Rahman', 1135, 'Operational Cleaning', 'SPV', 'Tinjaun Lapangan', 'Dalam', 'DA 2314 AP', '', 'BOX', 'Putih', '2024-02-23 08:30:00', '2024-02-23 09:10:00', '991', '886d43c37ff739905f67153caab26e99-out.jpg', '998', 'b9751e3f20bffdb50a332672bffb3050 (1)-in.jpg', 'ACC'),
-(98, 'Rayza Anindita', 1862, 'EQ & Tech', 'SPV', 'Tinjauan Proyek', 'Dalam', 'DA 1131 AP', '', 'MINI BUS', 'Silver', '2024-02-24 11:00:00', '2024-02-24 14:20:00', '1012', 'b9751e3f20bffdb50a332672bffb3050 (1)-out.jpg', '1025', 'b9751e3f20bffdb50a332672bffb3050-in.jpg', 'ACC'),
-(99, 'Alexa Norzahra', 2939, 'Facility Management', 'Staff', 'Monitoring ', 'Dalam', 'B 9012 APS', '', 'MINI BUS', 'Hitam', '2024-02-24 09:02:00', '2024-02-24 10:08:00', '1023', 'e5c634fa056d80b4c7654e4e7ce61e39 (1)-out.jpg', '1033', 'e630ecfd04385d04ad3e11b0657aeed2-in.jpg', 'ACC'),
-(100, 'Aisyah Tamara', 1054, 'Deployement', 'Staff', 'Tinjauan Lapangan', 'Dalam', 'B 9012 APS', '', 'MINI BUS', 'Hitam', '2024-02-24 13:01:00', '2024-02-24 14:01:00', '1045', 'b9751e3f20bffdb50a332672bffb3050 (2)-out.jpg', '1050', 'cf264d27f94fb04133436d448bc65c2f (1)-in.jpg', 'ACC'),
-(101, 'Afif Alhajiq', 1135, 'Equipment & Technology ', 'Staff', 'Rapat Luar ', 'Dalam', 'DA 1131 AP', '', 'MINI BUS', 'Silver', '2024-02-25 09:03:00', '2024-02-25 11:04:00', '1055', 'e630ecfd04385d04ad3e11b0657aeed2-out.jpg', '1060', 'e630ecfd04385d04ad3e11b0657aeed2 (1)-in.jpg', 'ACC'),
-(102, 'Willy Salwinata', 2112, 'Accounting & Budgeting', 'Staff', 'Penjemputan Tim Audit ', 'Dalam', 'B 9012 APS', '', 'MINI BUS', 'Hitam', '2024-02-25 13:06:00', '2024-02-25 14:06:00', '1034', 'e630ecfd04385d04ad3e11b0657aeed2 (1)-out.jpg', '1040', 'f928083d9efd229607146dd4c0e5fc87-in.jpg', 'ACC'),
-(103, 'Gralia Sinaga', 1024, 'HR Service, Compensation, Benefit', 'Staff', 'Tinjauan Kinerja Pegawai', 'Dalam', 'B 9012 APS', '', 'MINI BUS', 'Hitam', '2024-02-26 09:10:00', '2024-02-25 11:11:00', '1056', 'd93ae24f0bd253125a8c0c78b95e986a-out.jpg', '1060', 'e630ecfd04385d04ad3e11b0657aeed2 (2)-in.jpg', 'ACC'),
-(104, 'Elang Winata ', 1259, 'AR AP1 Group', 'SPV', 'Rapat Luar ', 'Dalam', 'DA 1131 AP', '', 'MINI BUS', 'Silver', '2024-02-26 10:13:00', '2024-02-26 13:13:00', '1098', 'e630ecfd04385d04ad3e11b0657aeed2 (2)-out.jpg', '1120', 'f928083d9efd229607146dd4c0e5fc87 (1)-in.jpg', 'ACC'),
-(105, 'Himana sagala', 1312, 'GA, Asset, Inventory Management', 'Staff', 'Pembelian Stock Gudang ', 'Luar', 'DA 2314 AP', '', 'BOX', 'Putih', '2024-02-26 15:14:00', '2024-02-27 14:15:00', '1013', '886d43c37ff739905f67153caab26e99 (1)-out.jpg', '1020', 'b9751e3f20bffdb50a332672bffb3050 (2)-in.jpg', 'ACC'),
-(106, 'Langit Alvanaro', 1501, 'GA, Asset, Inventory Management', 'Staff', 'Service', 'Luar', 'B 2231 APS', '', 'BOX', 'Hitam', '2024-02-28 23:17:00', '2024-02-29 16:17:00', '992', 'cf264d27f94fb04133436d448bc65c2f (1)-out.jpg', '1025', 'b9751e3f20bffdb50a332672bffb3050 (3)-in.jpg', 'ACC'),
-(107, 'Rafiki Walaya', 2012, 'Human Capital', 'SPV', 'Rapat Luar ', 'Dalam', 'DA 1131 AP', '', 'MINI BUS', 'Silver', '2024-02-29 10:21:00', '2024-02-29 15:22:00', '1037', '5bd2e036cd725319e8084cc970f40e0e (2)-out.jpg', '1045', 'e630ecfd04385d04ad3e11b0657aeed2 (3)-in.jpg', 'ACC'),
-(108, 'Jeevika Nayana', 2119, 'Equipment & Technology ', 'Staff', 'Monitoring ', 'Dalam', 'B 9012 APS', '', 'MINI BUS', 'Hitam', '2024-03-03 09:25:00', '2024-03-03 12:23:00', '1060', 'e5c634fa056d80b4c7654e4e7ce61e39 (2)-out.jpg', '1070', 'e630ecfd04385d04ad3e11b0657aeed2 (4)-in.jpg', 'ACC'),
-(109, 'Gralia Sinaga', 1024, 'HR Service, Compensation, Benefit', 'Staff', 'Rapat Luar ', 'Dalam', 'B 9012 APS', '', 'MINI BUS', 'Hitam', '2024-03-21 14:56:00', '2024-07-18 12:10:00', '112', '27511d6c06eb3aea120b88e45fddac87-out.jpg', '332', '73d51da1cefa62ecf8c4341aadef4819-in.jpg', 'ACC'),
-(123, '1', 1003, 'Accounting & Budgeting', 'Staff', '1', 'Dalam', 'AA 8723 PS', '', '', '', '2023-06-26 01:47:00', '0000-00-00 00:00:00', '1', '192657767 (9)-out.jpg', '', '', 'PENDING'),
-(124, '1', 1003, 'Accounting & Budgeting', 'Staff', '1', 'Dalam', 'AA 8723 PS', 'AA 8723 PS', 'SEDAN', 'Merah', '2023-06-26 01:47:00', '2023-06-26 01:57:00', '1', '192657767 (10)-out.jpg', '1', '', 'PENDING');
+INSERT INTO `reserv` (`id_reserv`, `Nik`, `Tujuan`, `Pilih_Reserv`, `Plat_nomer`, `WaktuOut`, `WaktuIn`, `KmOut`, `fotoout`, `KmIn`, `fotoin`, `status`) VALUES
+(87, 1312, 'serviced', 'Luar', 'R 0021 APS', '2023-01-10 09:23:00', '2023-01-11 20:22:00', '111d', 'SERTIFIKAT124-out.jpg', '112d', '5bd2e036cd725319e8084cc970f40e0e-in.jpg', 'PENDING'),
+(88, 2119, 'Rapat Luar ', 'Dalam', 'B 9012 APS', '2024-02-19 15:04:00', '2024-02-19 18:08:00', '921', 'e5c634fa056d80b4c7654e4e7ce61e39-out.jpg', '932', 'd93ae24f0bd253125a8c0c78b95e986a-in.jpg', 'ACC'),
+(90, 1119, 'Tinjaun TPS', 'Dalam', 'B 2231 APS', '2024-02-20 10:00:00', '2024-02-20 11:37:00', '331', 'f928083d9efd229607146dd4c0e5fc87-out.jpg', '340', 'e5c634fa056d80b4c7654e4e7ce61e39-in.jpg', 'ACC'),
+(91, 1211, 'Lapangan', 'Dalam', 'DA 1131 AP', '2024-02-21 12:00:00', '2024-02-21 01:10:00', '552', 'cf264d27f94fb04133436d448bc65c2f-out.jpg', '557', '5bd2e036cd725319e8084cc970f40e0e (1)-in.jpg', 'ACC'),
+(92, 1501, 'Pembelian Stock Gudang ', 'Luar', 'DA 2314 AP', '2024-02-22 09:00:00', '2024-02-22 11:31:00', '781', 'b9751e3f20bffdb50a332672bffb3050-out.jpg', '790', 'd93ae24f0bd253125a8c0c78b95e986a (2)-in.jpg', 'ACC'),
+(93, 1672, 'Rapat Luar ', 'Dalam', 'DA 1131 AP',  '2024-02-22 14:05:00', '2024-02-22 13:26:00', '678', '5bd2e036cd725319e8084cc970f40e0e-out.jpg', '688', '886d43c37ff739905f67153caab26e99-in.jpg', 'ACC'),
+(95, 1672, 'Monitoring ', 'Dalam', 'DA 1131 AP','2024-02-22 14:00:00', '2024-02-22 15:00:00', '889', '5bd2e036cd725319e8084cc970f40e0e (1)-out.jpg', '910', '886d43c37ff739905f67153caab26e99 (1)-in.jpg', 'ACC'),
+(96, 2325, 'Luar ', 'Dalam', 'B 9012 APS',  '2024-02-23 10:09:00', '2024-02-23 12:30:00', '998', 'f928083d9efd229607146dd4c0e5fc87 (1)-out.jpg', '1001', 'cf264d27f94fb04133436d448bc65c2f-in.jpg', 'ACC'),
+(97, 1135, 'Tinjaun Lapangan', 'Dalam', 'DA 2314 AP', '2024-02-23 08:30:00', '2024-02-23 09:10:00', '991', '886d43c37ff739905f67153caab26e99-out.jpg', '998', 'b9751e3f20bffdb50a332672bffb3050 (1)-in.jpg', 'ACC'),
+(98, 1862, 'Tinjauan Proyek', 'Dalam', 'DA 1131 AP',  '2024-02-24 11:00:00', '2024-02-24 14:20:00', '1012', 'b9751e3f20bffdb50a332672bffb3050 (1)-out.jpg', '1025', 'b9751e3f20bffdb50a332672bffb3050-in.jpg', 'ACC'),
+(99, 2939, 'Monitoring ', 'Dalam', 'B 9012 APS',  '2024-02-24 09:02:00', '2024-02-24 10:08:00', '1023', 'e5c634fa056d80b4c7654e4e7ce61e39 (1)-out.jpg', '1033', 'e630ecfd04385d04ad3e11b0657aeed2-in.jpg', 'ACC'),
+(100, 1054, 'Lapangan', 'Dalam', 'B 9012 APS',  '2024-02-24 13:01:00', '2024-02-24 14:01:00', '1045', 'b9751e3f20bffdb50a332672bffb3050 (2)-out.jpg', '1050', 'cf264d27f94fb04133436d448bc65c2f (1)-in.jpg', 'ACC'),
+(101, 1135, 'Rapat Luar ', 'Dalam', 'DA 1131 AP',  '2024-02-25 09:03:00', '2024-02-25 11:04:00', '1055', 'e630ecfd04385d04ad3e11b0657aeed2-out.jpg', '1060', 'e630ecfd04385d04ad3e11b0657aeed2 (1)-in.jpg', 'ACC'),
+(102, 2112, 'Penjemputan Tim Audit ', 'Dalam', 'B 9012 APS',  '2024-02-25 13:06:00', '2024-02-25 14:06:00', '1034', 'e630ecfd04385d04ad3e11b0657aeed2 (1)-out.jpg', '1040', 'f928083d9efd229607146dd4c0e5fc87-in.jpg', 'ACC'),
+(103, 1024, 'Tinjauan Kinerja Pegawai', 'Dalam', 'B 9012 APS',  '2024-02-26 09:10:00', '2024-02-25 11:11:00', '1056', 'd93ae24f0bd253125a8c0c78b95e986a-out.jpg', '1060', 'e630ecfd04385d04ad3e11b0657aeed2 (2)-in.jpg', 'ACC'),
+(104, 1259, 'Rapat Luar ', 'Dalam', 'DA 1131 AP',  '2024-02-26 10:13:00', '2024-02-26 13:13:00', '1098', 'e630ecfd04385d04ad3e11b0657aeed2 (2)-out.jpg', '1120', 'f928083d9efd229607146dd4c0e5fc87 (1)-in.jpg', 'ACC'),
+(105, 1312, 'Pembelian Stock Gudang ', 'Luar', 'DA 2314 AP', '2024-02-26 15:14:00', '2024-02-27 14:15:00', '1013', '886d43c37ff739905f67153caab26e99 (1)-out.jpg', '1020', 'b9751e3f20bffdb50a332672bffb3050 (2)-in.jpg', 'ACC'),
+(106, 1501, 'Service', 'Luar', 'B 2231 APS', '2024-02-28 23:17:00', '2024-02-29 16:17:00', '992', 'cf264d27f94fb04133436d448bc65c2f (1)-out.jpg', '1025', 'b9751e3f20bffdb50a332672bffb3050 (3)-in.jpg', 'ACC'),
+(107, 2012, 'Rapat Luar', 'Dalam', 'DA 1131 AP',  '2024-02-29 10:21:00', '2024-02-29 15:22:00', '1037', '5bd2e036cd725319e8084cc970f40e0e (2)-out.jpg', '1045', 'e630ecfd04385d04ad3e11b0657aeed2 (3)-in.jpg', 'ACC'),
+(108, 2119, 'Monitoring ', 'Dalam', 'B 9012 APS',  '2024-03-03 09:25:00', '2024-03-03 12:23:00', '1060', 'e5c634fa056d80b4c7654e4e7ce61e39 (2)-out.jpg', '1070', 'e630ecfd04385d04ad3e11b0657aeed2 (4)-in.jpg', 'ACC'),
+(109, 1024, 'Rapat Luar ', 'Dalam', 'B 9012 APS',  '2024-03-21 14:56:00', '2024-07-18 12:10:00', '112', '27511d6c06eb3aea120b88e45fddac87-out.jpg', '332', '73d51da1cefa62ecf8c4341aadef4819-in.jpg', 'ACC'),
+(123, 1003, '1', '1', 'Dalam',  '2023-06-26 01:47:00', '0000-00-00 00:00:00', '1', '192657767 (9)-out.jpg', '', '', 'PENDING'),
+(124, 1003, 'Dalam', 'AA 8723 PS', 'AA 8723',  '2023-06-26 01:47:00', '2023-06-26 01:57:00', '1', '192657767 (10)-out.jpg', '1', '', 'PENDING');
 
 -- --------------------------------------------------------
 
@@ -475,7 +469,6 @@ ALTER TABLE `pegawai`
 ALTER TABLE `reserv`
   ADD PRIMARY KEY (`id_reserv`),
   ADD KEY `reservasi_ibfk_5` (`Plat_nomer`),
-  ADD KEY `reservasi_ibfk_4` (`Devisi`),
   ADD KEY `reservasi_ibfk_2` (`Nik`),
   ADD KEY `reservasi_ibfk_3` (`Pilih_Reserv`);
 
@@ -586,7 +579,6 @@ ALTER TABLE `pajak`
 ALTER TABLE `reserv`
   ADD CONSTRAINT `reserv_ibfk_2` FOREIGN KEY (`Nik`) REFERENCES `pegawai` (`id_nik`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `reserv_ibfk_3` FOREIGN KEY (`Pilih_Reserv`) REFERENCES `status` (`id_sts`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `reserv_ibfk_4` FOREIGN KEY (`Devisi`) REFERENCES `devisi` (`id_devisi`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `reserv_ibfk_5` FOREIGN KEY (`Plat_nomer`) REFERENCES `mobil` (`plat_nomer`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
