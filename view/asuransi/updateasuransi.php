@@ -35,6 +35,7 @@ include '../../function/helper.php';
                     <div class="mb-3">
                         <label for="" class="form-label">No Plat</label>
                         <br>
+                        <input type="hidden" name="id" value="<?= $id ?>">
                         <select name="plat_nomer" id="" class="form-control" <?= $_SESSION['disabled'] ?> required>
                             <option value="<?= $data['plat_nomer']; ?>"><?= $data['plat_nomer']; ?></option>
                             <?php

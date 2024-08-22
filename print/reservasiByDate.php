@@ -112,9 +112,14 @@ if ($_POST['reservasi'] == 'semua') {
     id_reserv,
     pegawai.Nama as Nama_Peminjam,
     pegawai.id_nik as Nik,
+    pegawai.fk_devisi as Devisi,
+    pegawai.Jabatan as Jabatan,
     Tujuan,
     Pilih_Reserv,
     mobil.plat_nomer,
+    mobil.Merek as merek,
+    mobil.tipe_mobil as tipe_mobil,
+    mobil.Warna as warna,
     DATE_FORMAT(WaktuOut,"%d-%m-%y %H:%i") as WaktuOut,
     DATE_FORMAT(WaktuIn,"%d-%m-%y %H:%i") as WaktuIn,
     KmOut,
@@ -132,9 +137,14 @@ if ($_POST['reservasi'] == 'semua') {
     id_reserv,
     pegawai.Nama as Nama_Peminjam,
     pegawai.id_nik as Nik,
+    pegawai.fk_devisi as Devisi,
+    pegawai.Jabatan as Jabatan,
     Tujuan,
     Pilih_Reserv,
     mobil.plat_nomer,
+    mobil.Merek as merek,
+    mobil.tipe_mobil as tipe_mobil,
+    mobil.Warna as warna,
     DATE_FORMAT(WaktuOut,"%d-%m-%y %H:%i") as WaktuOut,
     DATE_FORMAT(WaktuIn,"%d-%m-%y %H:%i") as WaktuIn,
     KmOut,
@@ -157,10 +167,16 @@ if ($result->num_rows > 0) {
     $no = 1;
     while ($row = $result->fetch_assoc()) {
         $pdf->Cell(10, 10, $no++, 1);
+        $pdf->Cell(35, 10, $row['Nama_Peminjam'], 1);
         $pdf->Cell(15, 10, $row['Nik'], 1);
+        $pdf->Cell(60, 10, $row['Devisi'], 1);
+        $pdf->Cell(15, 10, $row['Jabatan'], 1);
         $pdf->Cell(45, 10, $row['Tujuan'], 1);
         $pdf->Cell(20, 10, $row['Pilih_Reserv'], 1);
         $pdf->Cell(25, 10, $row['plat_nomer'], 1);
+        $pdf->Cell(30, 10, $row['merek'], 1);
+        $pdf->Cell(20, 10, $row['tipe_mobil'], 1);
+        $pdf->Cell(20, 10, $row['warna'], 1);
         $pdf->Cell(30, 10, $row['WaktuOut'], 1);
         $pdf->Cell(30, 10, $row['WaktuIn'], 1);
         $pdf->Cell(15, 10, $row['KmOut'], 1);

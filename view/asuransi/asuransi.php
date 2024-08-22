@@ -36,8 +36,6 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
     unset($_SESSION['status']);
     ?>
 
-    ?>
-
     <div id="content-wrapper" class="d-flex flex-column">
         <div class="container-fluid">
             <div class="card">
@@ -78,14 +76,25 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                         <tbody>
                             <?php
                             $no = 1;
-                            $data = mysqli_query($koneksi, "select * from asuransi join mobil on mobil.plat_nomer=asuransi.plat_nomer");
+                            $data = mysqli_query($koneksi, "
+                            select 
+                                asuransi.id as id,
+                                asuransi.plat_nomer as plat_nomer,
+                                mobil.tipe_mobil as tipe_mobil,
+                                mobil.merek as merek,
+                                mobil.warna as warna,
+                                tgl_awal,
+                                tgl_akhir,
+                                Jenis,
+                                statuspem
+                             from asuransi join mobil on asuransi.plat_nomer=mobil.plat_nomer");
                             while ($d = mysqli_fetch_array($data)) {
                             ?>
                                 <tr>
                                     <?php
                                     if ($_SESSION['fk_role'] == 'admin') {
                                         echo ' <td>
-                            <a href="updateasuransi.php?id=' . $d["plat_nomer"] . '"><button class="btn btn-success"><i class="fas fa-fw fa-pen"></i></button></a>
+                            <a href="updateasuransi.php?id=' . $d["id"] . '"><button class="btn btn-success"><i class="fas fa-fw fa-pen"></i></button></a>
                             <a data-id="' . $d["id"] . '" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger"><i class="fas fa-fw fa-trash"></i></a>
                         </td>';
                                     } else {

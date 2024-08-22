@@ -24,7 +24,7 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
     <?php
     include '../../template/sidebar.php';
     include '../../template/topbar.php';
-    
+
     if (isset($_SESSION['status'])) {
         echo '<div class="alert alert-danger alert-dismissible fade show" style="z-index: 1;position:absolute;transform: translate(-50%, -50%);  top: 10%;
          left: 50%;" role="alert">
@@ -35,8 +35,6 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
              </div>';
     }
     unset($_SESSION['status']);
-    ?>
-
     ?>
 
     <div id="content-wrapper" class="d-flex flex-column">

@@ -47,7 +47,7 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                             <label for="" class="form-label">Status pembayaran</label>
                             <select name="statuspemba" class="form-control" required>
                                 <option value="">--pilih--</option>
-                                <option value="Tahunan">Tahunan</option>
+                                <option value="tahunan">tahunan</option>
                                 <option value="5 tahun">5 Tahun</option>
                             </select>
                         </div>

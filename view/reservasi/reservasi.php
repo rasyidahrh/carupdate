@@ -108,7 +108,7 @@ $page = isset($_GET['page']) ? ($_GET['page']) : false;
                                         <td>
                                             <a href="<?= BASE_URL ?>/view/reservasi/updateReserv.php?id_reserv=<?php echo $d["id_reserv"] ?>"><button class="btn btn-success"><i class="fas fa-fw fa-pen"></i></button></a>
                                             <hr>
-                                            <a href="print/buktiReservasi.php?id_reserv=<?= $d["id_reserv"] ?>"><button class="btn btn-dark"><i class="fas fa-fw fa-download"></i></button></a>
+                                            <a href="<?= BASE_URL ?>/print/buktiReservasi.php?id_reserv=<?= $d["id_reserv"] ?>"><button class="btn btn-dark"><i class="fas fa-fw fa-download"></i></button></a>
                                             <hr>
                                             <?php
                                             if ($_SESSION['fk_role'] == 'admin') {
