@@ -84,16 +84,16 @@ $pdf = new PDF('P', 'mm', 'A4');
 $pdf->AddPage();
 $sql = 'select 
 id_reserv,
-Nama_Peminjam,
-pegawai.id_nik as Nik,
-Devisi,
-pegawai.Jabatan as Jabatan,
-Tujuan,
-Pilih_Reserv,
-mobil.plat_nomer as Plat_nomer,
-mobil.Merek,
-mobil.Tipe_Mobil,
-mobil.Warna,
+    pegawai.Nama as Nama_Peminjam,
+    pegawai.id_nik as Nik,
+    pegawai.fk_devisi as Devisi,
+    pegawai.Jabatan as Jabatan,
+    Tujuan,
+    Pilih_Reserv,
+    mobil.plat_nomer as plat_nomer,
+    mobil.Merek as merek,
+    mobil.tipe_mobil as tipe_mobil,
+    mobil.Warna as warna,
 DATE_FORMAT(WaktuOut,"%d-%m-%y %H:%i") as WaktuOut,
 DATE_FORMAT(WaktuIn,"%d-%m-%y %H:%i") as WaktuIn,
 KmOut,
@@ -103,7 +103,7 @@ fotoin,
 status
 from reserv 
 join pegawai on id_nik=reserv.Nik 
-join mobil on reserv.Plat_nomer=mobil.id
+join mobil on reserv.Plat_nomer=mobil.plat_nomer
 where id_reserv=' . $_GET['id_reserv'];
 $result = $koneksi->query($sql)->fetch_assoc();
 // Add content to the PDF
@@ -113,10 +113,10 @@ $pdf->Cell(155, 10, 'Nik                :  ' . $result['Nik'], 0, 1, '');
 $pdf->Cell(155, 10, 'Devisi           :  ' . $result['Devisi'], 0, 1, '');
 $pdf->Cell(155, 10, 'Jabatan         :  ' . $result['Jabatan'], 0, 1, '');
 $pdf->Cell(155, 10, 'Tujuan           :  ' . $result['Tujuan'], 0, 1, '');
-$pdf->Cell(155, 10, 'NO.Plat         :  ' . $result['Plat_nomer'], 0, 1, '');
-$pdf->Cell(155, 10, 'Merek            :  ' . $result['Merek'], 0, 1, '');
-$pdf->Cell(155, 10, 'Tipe               :  ' . $result['Tipe_Mobil'], 0, 1, '');
-$pdf->Cell(155, 10, 'Warna            :  ' . $result['Warna'], 0, 1, '');
+$pdf->Cell(155, 10, 'NO.Plat         :  ' . $result['plat_nomer'], 0, 1, '');
+$pdf->Cell(155, 10, 'Merek            :  ' . $result['merek'], 0, 1, '');
+$pdf->Cell(155, 10, 'Tipe               :  ' . $result['tipe_mobil'], 0, 1, '');
+$pdf->Cell(155, 10, 'Warna            :  ' . $result['warna'], 0, 1, '');
 $pdf->Cell(155, 10, 'Waktu Keluar  :  ' . $result['WaktuOut'], 0, 1, '');
 $pdf->Cell(155, 10, 'Waktu Masuk  :  ' . $result['WaktuIn'], 0, 1, '');
 $pdf->Cell(155, 10, 'KM keluar        :  ' . $result['KmOut'], 0, 1, '');

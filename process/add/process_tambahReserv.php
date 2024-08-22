@@ -9,7 +9,7 @@ $tj = $_POST['Tujuan'];
 $reserv_pilih = $_POST['status'];
 $platnomer = $_POST['plat_nomer'];
 
-$query3 = mysqli_query($koneksi, "SELECT * FROM mobil  WHERE plat_nomer='$plat_nomer'");
+$query3 = mysqli_query($koneksi, "SELECT * FROM mobil  WHERE plat_nomer='$platnomer'");
 $data = mysqli_fetch_assoc($query3);
 print_r($data);
 $jumlah = $data['jumlah'] - 1;

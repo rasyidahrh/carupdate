@@ -310,11 +310,7 @@ INSERT INTO `reserv` (`id_reserv`, `Nik`, `Tujuan`, `Pilih_Reserv`, `Plat_nomer`
 (106, 1501, 'Service', 'Luar', 'B 2231 APS', '2024-02-28 23:17:00', '2024-02-29 16:17:00', '992', 'cf264d27f94fb04133436d448bc65c2f (1)-out.jpg', '1025', 'b9751e3f20bffdb50a332672bffb3050 (3)-in.jpg', 'ACC'),
 (107, 2012, 'Rapat Luar', 'Dalam', 'DA 1131 AP',  '2024-02-29 10:21:00', '2024-02-29 15:22:00', '1037', '5bd2e036cd725319e8084cc970f40e0e (2)-out.jpg', '1045', 'e630ecfd04385d04ad3e11b0657aeed2 (3)-in.jpg', 'ACC'),
 (108, 2119, 'Monitoring ', 'Dalam', 'B 9012 APS',  '2024-03-03 09:25:00', '2024-03-03 12:23:00', '1060', 'e5c634fa056d80b4c7654e4e7ce61e39 (2)-out.jpg', '1070', 'e630ecfd04385d04ad3e11b0657aeed2 (4)-in.jpg', 'ACC'),
-(109, 1024, 'Rapat Luar ', 'Dalam', 'B 9012 APS',  '2024-03-21 14:56:00', '2024-07-18 12:10:00', '112', '27511d6c06eb3aea120b88e45fddac87-out.jpg', '332', '73d51da1cefa62ecf8c4341aadef4819-in.jpg', 'ACC'),
-(123, 1003, '1', '1', 'Dalam',  '2023-06-26 01:47:00', '0000-00-00 00:00:00', '1', '192657767 (9)-out.jpg', '', '', 'PENDING'),
-(124, 1003, 'Dalam', 'AA 8723 PS', 'AA 8723',  '2023-06-26 01:47:00', '2023-06-26 01:57:00', '1', '192657767 (10)-out.jpg', '1', '', 'PENDING');
-
--- --------------------------------------------------------
+(109, 1024, 'Rapat Luar ', 'Dalam', 'B 9012 APS',  '2024-03-21 14:56:00', '2024-07-18 12:10:00', '112', '27511d6c06eb3aea120b88e45fddac87-out.jpg', '332', '73d51da1cefa62ecf8c4341aadef4819-in.jpg', 'ACC');
 
 --
 -- Table structure for table `role`
@@ -469,7 +465,6 @@ ALTER TABLE `pegawai`
 ALTER TABLE `reserv`
   ADD PRIMARY KEY (`id_reserv`),
   ADD KEY `reservasi_ibfk_5` (`Plat_nomer`),
-  ADD KEY `reservasi_ibfk_4` (`Devisi`),
   ADD KEY `reservasi_ibfk_2` (`Nik`),
   ADD KEY `reservasi_ibfk_3` (`Pilih_Reserv`);
 
@@ -580,7 +575,6 @@ ALTER TABLE `pajak`
 ALTER TABLE `reserv`
   ADD CONSTRAINT `reserv_ibfk_2` FOREIGN KEY (`Nik`) REFERENCES `pegawai` (`id_nik`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `reserv_ibfk_3` FOREIGN KEY (`Pilih_Reserv`) REFERENCES `status` (`id_sts`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `reserv_ibfk_4` FOREIGN KEY (`Devisi`) REFERENCES `devisi` (`id_devisi`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `reserv_ibfk_5` FOREIGN KEY (`Plat_nomer`) REFERENCES `mobil` (`plat_nomer`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
