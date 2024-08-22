@@ -102,9 +102,9 @@ $pdf->Ln();
 // Fetch data and add rows to the PDF
 // include 'config.php';
 if ($_POST['status'] == 'semua') {
-    $sql = 'select * from perbaikan where date(tgl)>="' . $_POST['tgl1'] .  '"and date(tgl)<="' . $_POST['tgl2'] . '"';
+    $sql = 'select * from kerusakan where date(tgl)>="' . $_POST['tgl1'] .  '"and date(tgl)<="' . $_POST['tgl2'] . '"';
 } else {
-    $sql = 'select * from perbaikan where status="' . $_POST['status'] . '" and date(tgl)>="' . $_POST['tgl1'] .  '"and date(tgl)<="' . $_POST['tgl2'] . '"';
+    $sql = 'select * from kerusakan where status="' . $_POST['status'] . '" and date(tgl)>="' . $_POST['tgl1'] .  '"and date(tgl)<="' . $_POST['tgl2'] . '"';
 }
 $result = $koneksi->query($sql);
 

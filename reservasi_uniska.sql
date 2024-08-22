@@ -469,6 +469,7 @@ ALTER TABLE `pegawai`
 ALTER TABLE `reserv`
   ADD PRIMARY KEY (`id_reserv`),
   ADD KEY `reservasi_ibfk_5` (`Plat_nomer`),
+  ADD KEY `reservasi_ibfk_4` (`Devisi`),
   ADD KEY `reservasi_ibfk_2` (`Nik`),
   ADD KEY `reservasi_ibfk_3` (`Pilih_Reserv`);
 
@@ -579,6 +580,7 @@ ALTER TABLE `pajak`
 ALTER TABLE `reserv`
   ADD CONSTRAINT `reserv_ibfk_2` FOREIGN KEY (`Nik`) REFERENCES `pegawai` (`id_nik`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `reserv_ibfk_3` FOREIGN KEY (`Pilih_Reserv`) REFERENCES `status` (`id_sts`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `reserv_ibfk_4` FOREIGN KEY (`Devisi`) REFERENCES `devisi` (`id_devisi`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `reserv_ibfk_5` FOREIGN KEY (`Plat_nomer`) REFERENCES `mobil` (`plat_nomer`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
